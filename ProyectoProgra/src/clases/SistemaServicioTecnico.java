@@ -11,7 +11,6 @@ public class SistemaServicioTecnico {
 	
 	public SistemaServicioTecnico(Hashtable<Integer, Pieza> stockMap, Hashtable<Integer, Orden> ordersMap,
 			Hashtable<Integer, Cliente> clientsMap, ArrayList<Tecnico> tecList) {
-		super();
 		StockMap = stockMap;
 		OrdersMap = ordersMap;
 		ClientsMap = clientsMap;
