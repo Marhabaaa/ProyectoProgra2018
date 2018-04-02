@@ -19,7 +19,7 @@ public class Main {
 		
 		System.out.println("Name: " + B.getStockMap().get(00004).getDescription());
 		
-		
+		//El gonzalo esta entero loco
 	}
 	
 	public static Hashtable<Integer, Pieza> getStockMap() throws SQLException {
