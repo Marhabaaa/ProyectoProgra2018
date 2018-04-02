@@ -2,44 +2,44 @@ package clases;
 
 public class Pieza {
     
-	private String code;
-    private String name;
-    private int stock;
+	private int code;
+    private String description;
+    private int cant;
 
     public Pieza() {
-    	code = "";
-        name = "";
-        stock = 0;
+    	code = 0;
+        description = "";
+        cant = 0;
     }
 
-    public Pieza(String code, String name, int stock) {
+    public Pieza(int code, String name, int stock) {
     	this.code = code;
-    	this.name = name;
-        this.stock = stock;
+    	this.description = name;
+        this.cant = stock;
     }
 
-	public String getCode() {
+	public int getCode() {
 		return code;
 	}
 
-	public void setCode(String code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
 	
-	public String getName() {
-		return name;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setDescription(String name) {
+		this.description = name;
 	}
 
-	public int getStock() {
-		return stock;
+	public int getCant() {
+		return cant;
 	}
 
-	public void setStock(int stock) {
-		this.stock = stock;
+	public void setCant(int stock) {
+		this.cant = stock;
 	}
 }
 
