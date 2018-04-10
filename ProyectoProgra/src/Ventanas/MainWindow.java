@@ -36,8 +36,8 @@ public class MainWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public MainWindow() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MainWindow.class.getResource("/imagenes/icono2.png")));
-		setTitle("RepairUPC\r\n");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MainWindow.class.getResource("/imageness/fondo-azul-836335-1.jpg")));
+		setTitle("11 chupalo entonceh");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
