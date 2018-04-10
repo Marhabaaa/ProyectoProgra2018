@@ -18,8 +18,6 @@ public class Main {
 		B.setStockMap(getStockMap());
 		
 		System.out.println("Name: " + B.getStockMap().get(00004).getDescription());
-		
-		
 	}
 	
 	public static Hashtable<Integer, Pieza> getStockMap() throws SQLException {
