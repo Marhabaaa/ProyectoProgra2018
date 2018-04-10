@@ -64,4 +64,6 @@ public class Cliente extends Persona {
 	public void setOrders(ArrayList<Orden> orders) {
 		this.orders = orders;
 	}
+	
+	
 }
