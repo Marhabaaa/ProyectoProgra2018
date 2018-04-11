@@ -88,12 +88,21 @@ public class MainWindow extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Siguiente");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnNewButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
-				VentanaPersona ventanaPersona= new VentanaPersona();
-				setVisible(false);
-				ventanaPersona.setVisible(true);
-			}
+				
+				//if(existeRut(rut.getText()){
+					//VentanaPersona ventana1 = new VentanaPersona(rut.getText(),problema.getText());
+					//setVisible(false);
+					//ventana1.setVisible(true);
+				//}else {
+					VentanaPersonaNoExiste ventana2 = new VentanaPersonaNoExiste(rut.getText(),problema.getText());
+					setVisible(false);
+					ventana2.setVisible(true);
+				//}
+				
+				
+			};
 		});
 		btnNewButton.setBounds(356, 190, 123, 49);
 		contentPane.add(btnNewButton);
