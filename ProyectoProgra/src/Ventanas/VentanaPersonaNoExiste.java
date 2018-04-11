@@ -18,6 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaPersonaNoExiste extends JFrame {
 
@@ -35,7 +37,7 @@ public class VentanaPersonaNoExiste extends JFrame {
 	 */
 	public VentanaPersonaNoExiste(String rut, String problema) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 554, 354);
+		setBounds(100, 100, 564, 354);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.desktop);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -78,8 +80,7 @@ public class VentanaPersonaNoExiste extends JFrame {
 		contentPane.add(lblCorreo);
 		
 		
-		JRadioButton rdbtnPersona = new JRadioButton("Persona");
-		
+		JRadioButton rdbtnPersona = new JRadioButton("Persona");	
 		rdbtnPersona.setForeground(SystemColor.text);
 		rdbtnPersona.setBackground(SystemColor.desktop);
 		rdbtnPersona.setBounds(305, 164, 87, 23);
@@ -97,6 +98,13 @@ public class VentanaPersonaNoExiste extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		btnAtrs = new JButton("Atr\u00E1s");
+		btnAtrs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MainWindow ventana = new MainWindow();
+				setVisible(false);
+				ventana.setVisible(true);
+			}
+		});
 		btnAtrs.setBounds(305, 244, 89, 23);
 		contentPane.add(btnAtrs);
 	
