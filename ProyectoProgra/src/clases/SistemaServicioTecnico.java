@@ -8,7 +8,7 @@ import BDconnector.MySQLconnection;
 public class SistemaServicioTecnico {
 
 	private static MySQLconnection conn;
-	private Map stockMap;
+	private List stockMap;
 	private Map ordersMap;
 	private Map clientsMap;
 	private List techList;
@@ -30,20 +30,20 @@ public class SistemaServicioTecnico {
 		this.orderNumber = orderNumber;
 	}*/
 	
-	public void showTest(int key) {
+	/*public void showTest(int key) {
 		//System.out.println("Name: " + ((Pieza) stockMap.get(key)).getDescription());
 		if(stockMap.contains(key))
 			System.out.println("SI");
 		else
 			System.out.println("NO");
-	}
+	}*/
 
-	public Map getStockMap() throws SQLException {
+	public List getStockMap() throws SQLException {
 		conn  = new MySQLconnection();
 		Connection connect = conn.getConnection();
 		PreparedStatement statement = (PreparedStatement) connect.prepareStatement("SELECT * FROM inventario");
 		ResultSet data = statement.executeQuery();
-		Map stockMap = new Map();
+		List stockMap = new List();
 		
 		int code, cant, price, complex;
 		String description;
@@ -58,7 +58,7 @@ public class SistemaServicioTecnico {
 			
 			Pieza aux = new Pieza(code, description, cant, price, complex);
 			
-			stockMap.add(code, aux);
+			stockMap.add(aux);
 		}
 		
 		return stockMap;
