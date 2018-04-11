@@ -9,7 +9,7 @@ public class Orden {
     private int orderNumber = 0; //numero de orden asignado automaticamente
     private int tecNumber;
     private int price;
-    private PartsList partsList;
+    private List partsList;
     private boolean done;
 
     public Orden(){
@@ -19,7 +19,7 @@ public class Orden {
         tecNumber = 0;
         orderNumber = 0;
         price = 0;
-        partsList = new PartsList();
+        partsList = new List();
         setDone(false);
     }
 
@@ -30,7 +30,7 @@ public class Orden {
         this.tecNumber = tecNumber;
         this.orderNumber = orderNumber;
         this.price = price;
-        this.partsList = new PartsList();
+        this.partsList = new List();
         this.setDone(done);
     }
 
@@ -90,11 +90,11 @@ public class Orden {
 		this.price = price;
 	}
 
-	public PartsList getPartsList() {
+	public List getPartsList() {
 		return partsList;
 	}
 
-	public void setPartsList(PartsList partsList) {
+	public void setPartsList(List partsList) {
 		this.partsList = partsList;
 	}
 	
@@ -109,9 +109,5 @@ public class Orden {
 	public int getNewOrderNumber() {
 		orderNumber++;
 		return orderNumber;
-	}
-	
-	public void addPiece(Pieza part) {
-		partsList.addPart(part);
 	}
 }

@@ -4,20 +4,20 @@ public class Tecnico extends Persona {
 	
     private int tecNumber;
     private int workload;	//cantidad de trabajo asignada al momento
-    private Orden[] orders;
+    private List orders;
 
     public Tecnico() {
 		super();
-		tecNumber = -1;
-		setOrdersNum(0);
-		orders = new Orden[5];	//5 es la cantidad maxima de ordenes que se le asigna a un tecnico
+		tecNumber = getNewTechNumber();
+		workload = 0;
+		orders = new List();
 	}
     
-    public Tecnico(String name, String rut, String phoneNumber, String eMail, int tecNumber, int ordersNum, Orden[] orders) {
+    public Tecnico(String name, String rut, String phoneNumber, String eMail, int tecNumber, int workload) {
 		super(name, rut, phoneNumber, eMail);
 		this.tecNumber = tecNumber;
-		this.setOrdersNum(ordersNum);
-		this.orders = orders;
+		this.workload = workload;
+		this.orders = new List();
 	}
     
 	public int getTecNumber() {
@@ -28,20 +28,25 @@ public class Tecnico extends Persona {
 		this.tecNumber = tec_number;
 	}
 	
-	public int getOrdersNum() {
-		return ordersNum;
+	public int getWorkload() {
+		return workload;
 	}
 
-	public void setOrdersNum(int orders_num) {
-		this.ordersNum = orders_num;
+	public void setWorkload(int workload) {
+		this.workload = workload;
 	}
 	
-	public Orden[] getOrders() {
+	public List getOrders() {
 		return orders;
 	}
 	
-	public void setOrders(Orden[] orders) {
+	public void setOrders(List orders) {
 		this.orders = orders;
+	}
+	
+	public int getNewTechNumber() {
+		tecNumber++;
+		return tecNumber;
 	}
 	
 }

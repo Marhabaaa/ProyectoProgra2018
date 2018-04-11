@@ -47,6 +47,22 @@ public class Pieza {
 	public void setCant(int stock) {
 		this.cant = stock;
 	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getComplex() {
+		return complex;
+	}
+
+	public void setComplex(int complex) {
+		this.complex = complex;
+	}
 	
 }
 
