@@ -6,7 +6,7 @@ public class Cliente extends Persona {
     
     private int clientType;
     private int maxOrders;	//maximo numero de ordenes por cliente segun tipo de cliente
-    private OrdersMap orders;
+    private Map orders;
             
     public Cliente(int clientType) {	//constructor nulo
     	super();
@@ -17,7 +17,7 @@ public class Cliente extends Persona {
         if(clientType == 1)
             maxOrders = 20;
         
-        orders = new OrdersMap();
+        orders = new Map();
     }
    
     public Cliente(String name, String rut, String phoneNumber, String eMail, int clientType) {
@@ -26,7 +26,7 @@ public class Cliente extends Persona {
     	
         if(clientType == 1)
             maxOrders = 20;
-        orders = new OrdersMap();
+        orders = new Map();
     }
 
 	public int getClientType() {
@@ -45,19 +45,23 @@ public class Cliente extends Persona {
 		this.maxOrders = maxOrders;
 	}
 
-	public OrdersMap getOrders() {
+	public Map getOrders() {
 		return orders;
 	}
 
-	public void setOrders(OrdersMap orders) {
+	public void setOrders(Map orders) {
 		this.orders = orders;
 	}
 	
 	public boolean addOrder(Orden order) {
 		if(orders.size() < maxOrders) {
-			orders.addOrder(order);
+			orders.add(order.getOrderNumber(), order);
 			return true;
 		}
 		return false;
+	}
+	
+	public void showReport() {
+		
 	}
 }

@@ -1,7 +1,5 @@
 package clases;
 
-import java.util.ArrayList;
-
 public class Orden {
     
 	private String description; //descripcion del problema del aparato
@@ -11,7 +9,8 @@ public class Orden {
     private int orderNumber = 0; //numero de orden asignado automaticamente
     private int tecNumber;
     private int price;
-    private PartsList partsList;
+    private List partsList;
+    private boolean done;
 
     public Orden(){
         dateIn = "";  
@@ -20,17 +19,19 @@ public class Orden {
         tecNumber = 0;
         orderNumber = 0;
         price = 0;
-        partsList = new PartsList();
+        partsList = new List();
+        setDone(false);
     }
 
-    public Orden(String dateIn, String dateOut, int clientRut, int tecNumber, int orderNumber, int price) {
+    public Orden(String dateIn, String dateOut, int clientRut, int tecNumber, int orderNumber, int price, boolean done) {
         this.dateIn = dateIn;
         this.dateOut = dateOut;
         this.clientRut = clientRut;
         this.tecNumber = tecNumber;
         this.orderNumber = orderNumber;
         this.price = price;
-        this.partsList = new PartsList();
+        this.partsList = new List();
+        this.setDone(done);
     }
 
 	public String getDescription() {
@@ -89,20 +90,24 @@ public class Orden {
 		this.price = price;
 	}
 
-	public PartsList getPartsList() {
+	public List getPartsList() {
 		return partsList;
 	}
 
-	public void setPartsList(PartsList partsList) {
+	public void setPartsList(List partsList) {
 		this.partsList = partsList;
 	}
 	
+	public boolean isDone() {
+		return done;
+	}
+
+	public void setDone(boolean done) {
+		this.done = done;
+	}
+
 	public int getNewOrderNumber() {
 		orderNumber++;
 		return orderNumber;
-	}
-	
-	public void addPiece(Pieza part) {
-		partsList.addPart(part);
 	}
 }
