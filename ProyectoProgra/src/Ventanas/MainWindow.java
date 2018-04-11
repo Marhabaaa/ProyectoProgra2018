@@ -19,6 +19,13 @@ import java.io.*;
 import java.util.Date;
 import java.util.Enumeration;
 import java.text.SimpleDateFormat;
+import javax.swing.JDesktopPane;
+import javax.swing.JMenuBar;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JToggleButton;
+import javax.swing.JTabbedPane;
 
 
 
@@ -27,6 +34,8 @@ import java.text.SimpleDateFormat;
 public class MainWindow extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField rut;
+	private JTextField problema;
 
 	/**
 	 * Launch the application.
@@ -51,7 +60,7 @@ public class MainWindow extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainWindow.class.getResource("/imageness/fondo-azul-836335-1.jpg")));
 		setTitle("11 chupalo entonceh");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 549, 345);
+		setBounds(100, 100, 554, 349);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.desktop);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -68,41 +77,52 @@ public class MainWindow extends JFrame {
 		btnSalir.setBounds(452, 11, 71, 23);
 		contentPane.add(btnSalir);
 		
-		JButton btnNewButton = new JButton("Nueva Orden");
-		btnNewButton.setBackground(SystemColor.textHighlight);
-		
-		btnNewButton.setFont(new Font("Segoe UI Black", Font.PLAIN, 23));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnNewButton.setBounds(10, 11, 187, 54);
-		contentPane.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("Ver Ordenes");
-		btnNewButton_1.setFont(new Font("Segoe UI Black", Font.PLAIN, 23));
-		btnNewButton_1.setBackground(SystemColor.textHighlight);
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_1.setBounds(10, 76, 187, 54);
-		contentPane.add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton("Piezas");
-		btnNewButton_2.setBackground(SystemColor.textHighlight);
-		btnNewButton_2.setFont(new Font("Segoe UI Black", Font.PLAIN, 23));
-		btnNewButton_2.setBounds(336, 76, 187, 54);
-		contentPane.add(btnNewButton_2);
-		
 		Date hoy= new Date(); 
 		SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy"); 
-		String fecha = sdf.format(hoy); 
+		String fecha = sdf.format(hoy);
 		
-		JTextPane txtpnDateformatDateformat = new JTextPane();
-		txtpnDateformatDateformat.setBackground(SystemColor.desktop);
-		txtpnDateformatDateformat.setText("Fecha:" + fecha);
-		txtpnDateformatDateformat.setBounds(409, 275, 114, 20);
-		contentPane.add(txtpnDateformatDateformat);
+		JLabel lblNewLabel = new JLabel("Fecha: " + fecha);
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setFont(new Font("Segoe UI Black", Font.PLAIN, 11));
+		lblNewLabel.setBounds(397, 281, 136, 14);
+		contentPane.add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("Siguiente");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VentanaPersona ventanaPersona= new VentanaPersona();
+				setVisible(false);
+				ventanaPersona.setVisible(true);
+			}
+		});
+		btnNewButton.setBounds(356, 190, 123, 49);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblNuevaOrden = new JLabel("Nueva Orden: ");
+		lblNuevaOrden.setForeground(SystemColor.text);
+		lblNuevaOrden.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
+		lblNuevaOrden.setBounds(32, 80, 151, 23);
+		contentPane.add(lblNuevaOrden);
+		
+		JLabel lblRut = new JLabel("Rut: ");
+		lblRut.setForeground(SystemColor.text);
+		lblRut.setBounds(105, 114, 46, 14);
+		contentPane.add(lblRut);
+		
+		rut = new JTextField();
+		rut.setBounds(164, 114, 182, 20);
+		contentPane.add(rut);
+		rut.setColumns(10);
+		
+		JLabel lblDescripcin = new JLabel("Descripci\u00F3n:");
+		lblDescripcin.setForeground(SystemColor.text);
+		lblDescripcin.setBounds(67, 152, 116, 14);
+		contentPane.add(lblDescripcin);
+		
+		problema = new JTextField();
+		problema.setText("\r\n\r\n\r\n\r\n\r\n");
+		problema.setBounds(164, 149, 182, 90);
+		contentPane.add(problema);
+		problema.setColumns(10);
 	}
 }
