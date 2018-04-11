@@ -92,13 +92,13 @@ public class MainWindow extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				//if(existeRut(rut.getText()){
-					//VentanaPersona ventana1 = new VentanaPersona(rut.getText(),problema.getText());
-					//setVisible(false);
-					//ventana1.setVisible(true);
-				//}else {
-					VentanaPersonaNoExiste ventana2 = new VentanaPersonaNoExiste(rut.getText(),problema.getText());
+					VentanaPersona ventana1 = new VentanaPersona(rut.getText(),problema.getText());
 					setVisible(false);
-					ventana2.setVisible(true);
+					ventana1.setVisible(true);
+				//}else {
+					//VentanaPersonaNoExiste ventana2 = new VentanaPersonaNoExiste(rut.getText(),problema.getText());
+					//setVisible(false);
+					//ventana2.setVisible(true);
 				//}
 				
 				
