@@ -14,7 +14,7 @@ public class Main {
 		
 		//B.setStockMap(getStockMap());
 		
-		//System.out.println("Name: " + B.getStockMap().get(00004).getDescription());
+		B.showTest(1);
 		
 	}
 	

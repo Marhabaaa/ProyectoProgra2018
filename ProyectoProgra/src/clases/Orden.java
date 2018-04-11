@@ -12,6 +12,7 @@ public class Orden {
     private int tecNumber;
     private int price;
     private PartsList partsList;
+    private boolean done;
 
     public Orden(){
         dateIn = "";  
@@ -21,9 +22,10 @@ public class Orden {
         orderNumber = 0;
         price = 0;
         partsList = new PartsList();
+        setDone(false);
     }
 
-    public Orden(String dateIn, String dateOut, int clientRut, int tecNumber, int orderNumber, int price) {
+    public Orden(String dateIn, String dateOut, int clientRut, int tecNumber, int orderNumber, int price, boolean done) {
         this.dateIn = dateIn;
         this.dateOut = dateOut;
         this.clientRut = clientRut;
@@ -31,6 +33,7 @@ public class Orden {
         this.orderNumber = orderNumber;
         this.price = price;
         this.partsList = new PartsList();
+        this.setDone(done);
     }
 
 	public String getDescription() {
@@ -97,6 +100,14 @@ public class Orden {
 		this.partsList = partsList;
 	}
 	
+	public boolean isDone() {
+		return done;
+	}
+
+	public void setDone(boolean done) {
+		this.done = done;
+	}
+
 	public int getNewOrderNumber() {
 		orderNumber++;
 		return orderNumber;

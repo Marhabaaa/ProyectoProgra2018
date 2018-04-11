@@ -23,12 +23,15 @@ public class SistemaServicioTecnico {
 
 	public SistemaServicioTecnico(StockMap stockMap, OrdersMap ordersMap, ClientsMap clientsMap, TechList techList,
 			int orderNumber) {
-		super();
 		this.stockMap = stockMap;
 		this.ordersMap = ordersMap;
 		this.clientsMap = clientsMap;
 		this.techList = techList;
 		this.orderNumber = orderNumber;
+	}
+	
+	public void showTest(int key) {
+		System.out.println("Name: " + stockMap.getPart(key).getDescription());
 	}
 
 	public StockMap getStockMap() throws SQLException {
@@ -42,7 +45,7 @@ public class SistemaServicioTecnico {
 		String description;
 		int cant;
 		while(data.next()) {
-			//System.out.println("Cod: " + data.getObject("codPieza") + "   Descripcion: " + data.getObject("descripcion") + "   Cantidad: " + data.getObject("cant"));
+			System.out.println("Cod: " + data.getObject("codPieza") + "   Descripcion: " + data.getObject("descripcion") + "   Cantidad: " + data.getObject("cant"));
 			code = Integer.parseInt(data.getObject("codPieza").toString());
 			description = data.getObject("descripcion").toString();
 			cant = Integer.parseInt((String)data.getObject("cant").toString());

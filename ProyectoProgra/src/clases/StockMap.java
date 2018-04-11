@@ -13,4 +13,7 @@ public class StockMap {
 		stockMap.put(part.getCode(), part);
 	}
 	
+	public Pieza getPart(int key) {
+		return (Pieza) stockMap.get(key);
+	}
 }
