@@ -1,7 +1,7 @@
 package clases;
 
 public class Pieza {
-    
+	
 	private int code;
     private String description;
     private int cant;

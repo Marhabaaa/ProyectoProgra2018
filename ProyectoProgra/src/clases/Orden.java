@@ -1,73 +1,84 @@
 package clases;
 
+import java.util.ArrayList;
+
 public class Orden {
     
-    private String date_in;
-    private String date_out;
-    private int client_number;
-    private int order_number;
-    private int tec_number;
+	private String description; //descripcion del problema del aparato
+    private String dateIn;
+    private String dateOut;
+    private int clientRut;
+    private int orderNumber = 0; //numero de orden asignado automaticamente
+    private int tecNumber;
     private int price;
-    private Pieza[] parts;
+    private PartsList partsList;
 
     public Orden(){
-        date_in = "";  
-        date_out = "";
-        client_number = 0;
-        tec_number = 0;
-        order_number = 0;
+        dateIn = "";  
+        dateOut = "";
+        clientRut = 0;
+        tecNumber = 0;
+        orderNumber = 0;
         price = 0;
-        parts = new Pieza[20];
+        partsList = new PartsList();
     }
 
-    public Orden(String date_in, String date_out, int client_number, int tec_number, int order_number, int price, Pieza[] parts) {
-        this.date_in = date_in;
-        this.date_out = date_out;
-        this.client_number = client_number;
-        this.tec_number = tec_number;
-        this.order_number = order_number;
+    public Orden(String dateIn, String dateOut, int clientRut, int tecNumber, int orderNumber, int price) {
+        this.dateIn = dateIn;
+        this.dateOut = dateOut;
+        this.clientRut = clientRut;
+        this.tecNumber = tecNumber;
+        this.orderNumber = orderNumber;
         this.price = price;
-        this.parts = parts;
+        this.partsList = new PartsList();
     }
 
-	public String getDate_in() {
-		return date_in;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDate_in(String date_in) {
-		this.date_in = date_in;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public String getDate_out() {
-		return date_out;
+	public String getDateIn() {
+		return dateIn;
 	}
 
-	public void setDate_out(String date_out) {
-		this.date_out = date_out;
+	public void setDateIn(String dateIn) {
+		this.dateIn = dateIn;
 	}
 
-	public int getClient_number() {
-		return client_number;
+	public String getDateOut() {
+		return dateOut;
 	}
 
-	public void setClient_number(int client_number) {
-		this.client_number = client_number;
+	public void setDateOut(String dateOut) {
+		this.dateOut = dateOut;
 	}
 
-	public int getOrder_number() {
-		return order_number;
+	public int getClientRut() {
+		return clientRut;
 	}
 
-	public void setOrder_number(int order_number) {
-		this.order_number = order_number;
+	public void setClientRut(int clientRut) {
+		this.clientRut = clientRut;
 	}
 
-	public int getTec_number() {
-		return tec_number;
+	public int getOrderNumber() {
+		return orderNumber;
 	}
 
-	public void setTec_number(int tec_number) {
-		this.tec_number = tec_number;
+	public void setOrderNumber(int orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+
+	public int getTecNumber() {
+		return tecNumber;
+	}
+
+	public void setTecNumber(int tecNumber) {
+		this.tecNumber = tecNumber;
 	}
 
 	public int getPrice() {
@@ -78,11 +89,22 @@ public class Orden {
 		this.price = price;
 	}
 
-	public Pieza[] getParts() {
-		return parts;
+	public PartsList getPartsList() {
+		return partsList;
 	}
 
-	public void setParts(Pieza[] parts) {
-		this.parts = parts;
+	public void setPartsList(PartsList partsList) {
+		this.partsList = partsList;
 	}
+	
+	public int getNewOrderNumber() {
+		orderNumber++;
+		return orderNumber;
+	}
+	
+	public void addPiece(Pieza part) {
+		partsList.addPart(part);
+	}
+	
+	
 }

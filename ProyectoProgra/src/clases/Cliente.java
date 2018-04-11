@@ -4,64 +4,60 @@ import java.util.*;
 
 public class Cliente extends Persona {
     
-    private int client_number;
-    private int client_type;
-    private int max_orders;	//maximo numero de ordenes por cliente segun tipo de cliente
-    private ArrayList<Orden> orders;
+    private int clientType;
+    private int maxOrders;	//maximo numero de ordenes por cliente segun tipo de cliente
+    private OrdersMap orders;
             
-    public Cliente(int client_type) {	//constructor nulo
+    public Cliente(int clientType) {	//constructor nulo
     	super();
-        client_number = 0;
-        this.client_type = client_type;
+        this.clientType = clientType;
         
-        max_orders = 5;
+        maxOrders = 5;
         
-        if(client_type == 1)
-            max_orders = 20;
+        if(clientType == 1)
+            maxOrders = 20;
         
-        orders = new ArrayList<Orden>(2);
+        orders = new OrdersMap();
     }
    
-    public Cliente(String name, String phone_number, String e_mail, int client_number, int client_type, ArrayList<Orden> orders) {
-    	super(name, phone_number, e_mail);
-    	this.client_number = client_number;
-    	this.client_type = client_type;
+    public Cliente(String name, String rut, String phoneNumber, String eMail, int clientType) {
+    	super(name, rut, phoneNumber, eMail);
+    	this.clientType = clientType;
     	
-        if(client_type == 1)
-            max_orders = 20;
-        
-        this.orders = orders;
+        if(clientType == 1)
+            maxOrders = 20;
+        orders = new OrdersMap();
     }
 
-	public int getClient_number() {
-		return client_number;
+	public int getClientType() {
+		return clientType;
 	}
 
-	public void setClient_number(int client_number) {
-		this.client_number = client_number;
+	public void setClientType(int clientType) {
+		this.clientType = clientType;
 	}
 
-	public int getClient_type() {
-		return client_type;
+	public int getMaxOrders() {
+		return maxOrders;
 	}
 
-	public void setClient_type(int client_type) {
-		this.client_type = client_type;
+	public void setMaxOrders(int maxOrders) {
+		this.maxOrders = maxOrders;
 	}
 
-	public int getMax_orders() {
-		return max_orders;
-	}
-
-	public void setMax_orders(int max_orders) {
-		this.max_orders = max_orders;
-	}
-
-	public ArrayList<Orden> getOrders() {
+	public OrdersMap getOrders() {
 		return orders;
 	}
 
-	public void setOrders(ArrayList<Orden> orders) {
+	public void setOrders(OrdersMap orders) {
 		this.orders = orders;
+	}
+	
+	public boolean addOrder(Orden order) {
+		if(orders.size() < maxOrders) {
+			orders.addOrder(rut, order);
+			return true;
+		}
+		return false;
 	}
 }

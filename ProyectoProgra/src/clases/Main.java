@@ -1,9 +1,6 @@
 package clases;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Hashtable;
 
 import BDconnector.MySQLconnection;
@@ -15,9 +12,16 @@ public class Main {
 		
 		SistemaServicioTecnico B = new SistemaServicioTecnico();
 		
-		B.setStockMap(getStockMap());
+		//B.setStockMap(getStockMap());
 		
-		System.out.println("Name: " + B.getStockMap().get(00004).getDescription());
+		//System.out.println("Name: " + B.getStockMap().get(00004).getDescription());
+		
+	}
+	
+	public void newOrder() {
+		String descripcion;
+		String rut;
+	
 	}
 	
 	public static Hashtable<Integer, Pieza> getStockMap() throws SQLException {

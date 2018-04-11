@@ -1,20 +1,24 @@
 package clases;
 
 public class Persona {
-    protected String name;
-    protected String phone_number;
-    protected String e_mail;
 	
+    protected String name;
+    protected String rut;
+    protected String phoneNumber;
+    protected String eMail;
+    
     public Persona() {
 		name = "";
-		phone_number = "";
-		e_mail = "";
+		rut = "";
+		phoneNumber = "";
+		eMail = "";
 	}
     
-    public Persona(String name, String phone_number, String e_mail) {
+    public Persona(String name, String rut, String phoneNumber, String eMail) {
 		this.name = name;
-		this.phone_number = phone_number;
-		this.e_mail = e_mail;
+		this.rut = rut;
+		this.phoneNumber = phoneNumber;
+		this.eMail = eMail;
 	}
 
 	public String getName() {
@@ -24,20 +28,29 @@ public class Persona {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public String getPhone_number() {
-		return phone_number;
+	
+	public String getRut() {
+		return rut;
 	}
 
-	public void setPhone_number(String phone_number) {
-		this.phone_number = phone_number;
+	public void setRut(String rut) {
+		this.rut = rut;
 	}
 
-	public String getE_mail() {
-		return e_mail;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setE_mail(String e_mail) {
-		this.e_mail = e_mail;
-	}  
+	public void setPhoneNumber(String phone_number) {
+		this.phoneNumber = phone_number;
+	}
+
+	public String geteMail() {
+		return eMail;
+	}
+	
+	public void seteMail(String eMail) {
+		this.eMail = eMail;
+	}
+	
 }
