@@ -6,7 +6,7 @@ public class Cliente extends Persona {
     
     private int clientType;
     private int maxOrders;	//maximo numero de ordenes por cliente segun tipo de cliente
-    private OrdersMap orders;
+    private Orden[] orders;
             
     public Cliente(int clientType) {	//constructor nulo
     	super();
@@ -59,5 +59,9 @@ public class Cliente extends Persona {
 			return true;
 		}
 		return false;
+	}
+	
+	public void showReport() {
+		
 	}
 }

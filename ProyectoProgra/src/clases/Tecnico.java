@@ -3,7 +3,7 @@ package clases;
 public class Tecnico extends Persona {
 	
     private int tecNumber;
-    private int ordersNum;	//cantidad de ordenes asignadas al momento
+    private int workload;	//cantidad de trabajo asignada al momento
     private Orden[] orders;
 
     public Tecnico() {

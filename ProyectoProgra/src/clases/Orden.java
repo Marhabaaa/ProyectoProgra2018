@@ -1,7 +1,5 @@
 package clases;
 
-import java.util.ArrayList;
-
 public class Orden {
     
 	private String description; //descripcion del problema del aparato
