@@ -3,7 +3,7 @@ package clases;
 import java.util.Hashtable;
 
 public class OrdersMap {
-	private Hashtable<String, Orden> ordersMap;
+	private Hashtable<Integer, Orden> ordersMap;
 	
 	public OrdersMap() {
 		ordersMap = new Hashtable<>();
@@ -13,7 +13,8 @@ public class OrdersMap {
 		return ordersMap.size();
 	}
 	
-	public void addOrder(String key, Orden order) {
-		ordersMap.put(key, order);
+	public void addOrder(Orden order) {
+		ordersMap.put(order.getNewOrderNumber(), order);
 	}
+	
 }

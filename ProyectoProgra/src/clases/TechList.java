@@ -1,5 +1,12 @@
 package clases;
 
-public class TechList {
+import java.util.ArrayList;
 
+public class TechList {
+	private ArrayList<Tecnico> techList;
+	
+	public TechList() {
+		techList = new ArrayList<>();
+	}
+	
 }

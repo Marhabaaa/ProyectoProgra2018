@@ -9,11 +9,22 @@ public class ClientsMap {
 		clientsMap = new Hashtable<>();
 	}
 
-	public Hashtable<String, Cliente> getClientsMap() {
-		return clientsMap;
+	public boolean clientsExist(String rut) {
+		return clientsMap.containsKey(rut);
 	}
-
-	public void setClientsMap(Hashtable<String, Cliente> clientsMap) {
-		this.clientsMap = clientsMap;
+	
+	public boolean addClient(Cliente client) {
+		clientsMap.put(client.getRut(), client);
+		return true;
 	}
+	
+	public boolean addOrderToClient(String rut, Orden order) {
+		if(clientsMap.containsKey(rut)) {
+			Cliente aux = (Cliente) clientsMap.get(rut);
+			aux.addOrder(order);
+			return true;
+		}
+		return false;
+	}
+	
 }

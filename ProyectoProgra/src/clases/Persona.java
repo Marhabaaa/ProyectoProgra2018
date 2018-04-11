@@ -52,5 +52,4 @@ public class Persona {
 	public void seteMail(String eMail) {
 		this.eMail = eMail;
 	}
-	
 }

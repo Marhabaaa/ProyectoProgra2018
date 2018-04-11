@@ -43,4 +43,5 @@ public class Tecnico extends Persona {
 	public void setOrders(Orden[] orders) {
 		this.orders = orders;
 	}
+	
 }

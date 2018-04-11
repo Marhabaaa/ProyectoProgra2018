@@ -41,5 +41,6 @@ public class Pieza {
 	public void setCant(int stock) {
 		this.cant = stock;
 	}
+	
 }
 

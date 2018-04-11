@@ -105,6 +105,4 @@ public class Orden {
 	public void addPiece(Pieza part) {
 		partsList.addPart(part);
 	}
-	
-	
 }

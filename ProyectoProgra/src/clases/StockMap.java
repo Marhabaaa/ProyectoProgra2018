@@ -12,4 +12,5 @@ public class StockMap {
 	public void addPart(Pieza part) {
 		stockMap.put(part.getCode(), part);
 	}
+	
 }
