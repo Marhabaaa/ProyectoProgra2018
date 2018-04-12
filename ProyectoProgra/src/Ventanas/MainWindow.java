@@ -1,11 +1,16 @@
 package Ventanas;
 
+import java.sql.*;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import clases.SistemaServicioTecnico;
+
 import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JButton;
@@ -36,11 +41,14 @@ public class MainWindow extends JFrame {
 	private JPanel contentPane;
 	private JTextField rut;
 	private JTextField problema;
+	private static SistemaServicioTecnico B;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
+		
+		B = new SistemaServicioTecnico();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -92,7 +100,7 @@ public class MainWindow extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				//if(existeRut(rut.getText()){
-					VentanaPersona ventana1 = new VentanaPersona(rut.getText(),problema.getText());
+					VentanaPersona ventana1 = new VentanaPersona(rut.getText(),problema.getText(), B);
 					setVisible(false);
 					ventana1.setVisible(true);
 				//}else {

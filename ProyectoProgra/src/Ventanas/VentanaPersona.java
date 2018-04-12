@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import clases.List;
+import clases.SList;
 import clases.SistemaServicioTecnico;
 
 import java.awt.SystemColor;
@@ -23,13 +23,12 @@ import javax.swing.AbstractListModel;
 public class VentanaPersona extends JFrame {
 
 	private JPanel contentPane;
-	private SistemaServicioTecnico B = new SistemaServicioTecnico();
 
 	/**
 	 * Create the frame.
 	 */
-	public VentanaPersona(String rut, String problema) {
-		
+	public VentanaPersona(String rut, String problema, SistemaServicioTecnico B) {
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 554, 354);
 		contentPane = new JPanel();
@@ -50,15 +49,17 @@ public class VentanaPersona extends JFrame {
 		
 		JList list = new JList();
 		list.setModel(new AbstractListModel() {
-			List parts = B.getStockMap();
+			String[] values = B.getStockDescriptions();
 			public int getSize() {
-				return B.getStockMap().size();
+				return values.length;
 			}
 			public Object getElementAt(int index) {
-				return B.getStockMap().get(index);
+				return values[index];
 			}
 		});
 		scrollPane.setViewportView(list);
+		
+		
 		
 		/*JList list = new JList();
 		list.setModel(new AbstractListModel() {
@@ -70,12 +71,13 @@ public class VentanaPersona extends JFrame {
 				return values[index];
 			}
 		});
-		scrollPane.setViewportView(list);*/
+		scrollPane.setViewportView(list);
+		*/
 		
 		JButton agregarPieza = new JButton("Agregar");
 		agregarPieza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				values.getElementAt(i);
+				//values.getElementAt(i);
 			}
 		});
 		agregarPieza.setBounds(295, 79, 89, 23);
@@ -123,7 +125,6 @@ public class VentanaPersona extends JFrame {
 			}
 		});
 		scrollPane_1.setViewportView(list_1);*/
-		
 		
 	
 		

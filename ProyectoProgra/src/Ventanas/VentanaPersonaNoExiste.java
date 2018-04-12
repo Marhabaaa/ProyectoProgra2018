@@ -1,11 +1,14 @@
 package Ventanas;
-
+import java.sql.*;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import clases.SistemaServicioTecnico;
+
 import java.awt.SystemColor;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -35,7 +38,7 @@ public class VentanaPersonaNoExiste extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaPersonaNoExiste(String rut, String problema) {
+	public VentanaPersonaNoExiste(String rut, String problema,SistemaServicioTecnico B) throws SQLException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 564, 354);
 		contentPane = new JPanel();
@@ -94,6 +97,13 @@ public class VentanaPersonaNoExiste extends JFrame {
 		contentPane.add(rdbtnEmpresa);
 		
 		btnNewButton = new JButton("Siguiente");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VentanaPersona ventana1 = new VentanaPersona(rut,problema,B);
+				setVisible(false);
+				ventana1.setVisible(true);
+			}
+		});
 		btnNewButton.setBounds(409, 244, 89, 23);
 		contentPane.add(btnNewButton);
 		

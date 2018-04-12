@@ -24,7 +24,7 @@ public class OrdenCreada1 extends JFrame {
 	//public OrdenCreada1(String nombre) {
 	public OrdenCreada1() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 564, 354);
+		setBounds(100, 100, 570, 354);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.desktop);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
