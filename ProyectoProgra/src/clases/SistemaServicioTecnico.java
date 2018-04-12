@@ -88,4 +88,17 @@ public class SistemaServicioTecnico {
 		return ordersMap;
 	}
 	
+	public String[] getStockDescriptions() {
+		int i = 0;
+		SList list = stockMap.toSList();
+		String[] s = new String[list.size()];
+		
+		while(i < list.size()) {
+			s[i] = ((Pieza) list.get(i)).getDescription();
+			i++;
+		}
+		
+		return s;
+	}
+	
 }
