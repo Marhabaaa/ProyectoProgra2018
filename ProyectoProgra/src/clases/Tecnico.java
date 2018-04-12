@@ -4,20 +4,20 @@ public class Tecnico extends Persona {
 	
     private int tecNumber;
     private int workload;	//cantidad de trabajo asignada al momento
-    private List orders;
+    private SList orders;
 
     public Tecnico() {
 		super();
 		tecNumber = getNewTechNumber();
 		workload = 0;
-		orders = new List();
+		orders = new SList();
 	}
     
-    public Tecnico(String name, String rut, String phoneNumber, String eMail, int tecNumber, int workload) {
+    public Tecnico(String name, int rut, String phoneNumber, String eMail, int tecNumber, int workload) {
 		super(name, rut, phoneNumber, eMail);
 		this.tecNumber = tecNumber;
 		this.workload = workload;
-		this.orders = new List();
+		this.orders = new SList();
 	}
     
 	public int getTecNumber() {
@@ -36,11 +36,11 @@ public class Tecnico extends Persona {
 		this.workload = workload;
 	}
 	
-	public List getOrders() {
+	public SList getOrders() {
 		return orders;
 	}
 	
-	public void setOrders(List orders) {
+	public void setOrders(SList orders) {
 		this.orders = orders;
 	}
 	

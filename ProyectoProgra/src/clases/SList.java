@@ -2,10 +2,10 @@ package clases;
 
 import java.util.ArrayList;
 
-public class List {
+public class SList {
 	private ArrayList<Object> list;
 	
-	public List() {
+	public SList() {
 		list = new ArrayList<>();
 	}
 	

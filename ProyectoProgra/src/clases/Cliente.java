@@ -1,12 +1,10 @@
 package clases;
 
-import java.util.*;
-
 public class Cliente extends Persona {
     
     private int clientType;
-    private int maxOrders;	//maximo numero de ordenes por cliente segun tipo de cliente
-    private Map orders;
+    private int maxOrders;	//maximo numero de ordenes permitidas por cliente segun tipo de cliente
+    private SMap orders;
             
     public Cliente(int clientType) {	//constructor nulo
     	super();
@@ -17,16 +15,17 @@ public class Cliente extends Persona {
         if(clientType == 1)
             maxOrders = 20;
         
-        orders = new Map();
+        orders = new SMap();
     }
    
-    public Cliente(String name, String rut, String phoneNumber, String eMail, int clientType) {
+    public Cliente(String name, int rut, String phoneNumber, String eMail, int clientType) {
     	super(name, rut, phoneNumber, eMail);
     	this.clientType = clientType;
     	
         if(clientType == 1)
             maxOrders = 20;
-        orders = new Map();
+        
+        orders = new SMap();
     }
 
 	public int getClientType() {
@@ -45,11 +44,11 @@ public class Cliente extends Persona {
 		this.maxOrders = maxOrders;
 	}
 
-	public Map getOrders() {
+	public SMap getOrders() {
 		return orders;
 	}
 
-	public void setOrders(Map orders) {
+	public void setOrders(SMap orders) {
 		this.orders = orders;
 	}
 	

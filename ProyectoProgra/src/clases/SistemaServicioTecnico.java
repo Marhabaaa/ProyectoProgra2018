@@ -1,24 +1,23 @@
 package clases;
 
 import java.sql.*;
-import java.util.*;
 
 import BDconnector.MySQLconnection;
 
 public class SistemaServicioTecnico {
 
 	private static MySQLconnection conn;
-	private List stockMap;
-	private Map ordersMap;
-	private Map clientsMap;
-	private List techList;
+	private SMap stockMap;
+	private SMap ordersMap;
+	private SMap clientsMap;
+	private SList techList;
 	private int orderNumber = 0; //variable para asignacion de numero de orden
 	
 	public SistemaServicioTecnico() throws SQLException {
-		stockMap = getStockMap();
-		ordersMap = new Map();
-		clientsMap = new Map();
-		techList = new List();
+		stockMap = getStockMapFromDB();
+		ordersMap = new SMap();
+		clientsMap = new SMap();
+		techList = new SList();
 	}
 
 	/*public SistemaServicioTecnico(StockMap stockMap, OrdersMap ordersMap, ClientsMap clientsMap, TechList techList,
@@ -30,20 +29,20 @@ public class SistemaServicioTecnico {
 		this.orderNumber = orderNumber;
 	}*/
 	
-	/*public void showTest(int key) {
-		//System.out.println("Name: " + ((Pieza) stockMap.get(key)).getDescription());
-		if(stockMap.contains(key))
-			System.out.println("SI");
-		else
-			System.out.println("NO");
-	}*/
-
-	public List getStockMap() throws SQLException {
+	public void showTest(int key) {
+		System.out.println("Name: " + ((Pieza) stockMap.get(key)).getDescription());
+	}
+	
+	public SMap getStockMap() {
+		return stockMap;
+	}
+	
+	public SMap getStockMapFromDB() throws SQLException {
 		conn  = new MySQLconnection();
 		Connection connect = conn.getConnection();
 		PreparedStatement statement = (PreparedStatement) connect.prepareStatement("SELECT * FROM inventario");
 		ResultSet data = statement.executeQuery();
-		List stockMap = new List();
+		SMap stockMap = new SMap();
 		
 		int code, cant, price, complex;
 		String description;
@@ -58,19 +57,19 @@ public class SistemaServicioTecnico {
 			
 			Pieza aux = new Pieza(code, description, cant, price, complex);
 			
-			stockMap.add(aux);
+			stockMap.add(code, aux);
 		}
 		
 		return stockMap;
 	}
 	
-	public Map getOrdersMap() throws SQLException {
+	public SMap getOrdersMap() throws SQLException {
 		conn  = new MySQLconnection();
 		Connection connect = conn.getConnection();
 		PreparedStatement statement1 = (PreparedStatement) connect.prepareStatement("SELECT * FROM ordenes");
 		PreparedStatement statement2 = (PreparedStatement) connect.prepareStatement("SELECT * FROM ");
 		ResultSet data = statement1.executeQuery();
-		Map ordersMap = new Map();
+		SMap ordersMap = new SMap();
 		
 		int code;
 		String description;

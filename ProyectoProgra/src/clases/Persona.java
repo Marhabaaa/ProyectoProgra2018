@@ -3,18 +3,18 @@ package clases;
 public class Persona {
 	
     protected String name;
-    protected String rut;
+    protected int rut;
     protected String phoneNumber;
     protected String eMail;
     
     public Persona() {
 		name = "";
-		rut = "";
+		rut = 0;
 		phoneNumber = "";
 		eMail = "";
 	}
     
-    public Persona(String name, String rut, String phoneNumber, String eMail) {
+    public Persona(String name, int rut, String phoneNumber, String eMail) {
 		this.name = name;
 		this.rut = rut;
 		this.phoneNumber = phoneNumber;
@@ -29,11 +29,11 @@ public class Persona {
 		this.name = name;
 	}
 	
-	public String getRut() {
+	public int getRut() {
 		return rut;
 	}
 
-	public void setRut(String rut) {
+	public void setRut(int rut) {
 		this.rut = rut;
 	}
 

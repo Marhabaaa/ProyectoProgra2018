@@ -1,12 +1,13 @@
 package clases;
 
+import java.util.Enumeration;
 import java.util.Hashtable;
 
-public class Map {
+public class SMap {
 	
 	private Hashtable<Integer, Object> map;
 	
-	public Map() {
+	public SMap() {
 		map = new Hashtable<>();
 	}
 	
@@ -21,6 +22,16 @@ public class Map {
 	
 	public Object get(int key) {
 		return map.get(key);
+	}
+	
+	public SList toSList() {
+		Enumeration<Object> e = map.elements();
+		SList list = new SList();
+		
+		while(e.hasMoreElements())
+			list.add(e.nextElement());
+		
+		return list;
 	}
 	
 	public int size() {
