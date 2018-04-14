@@ -2,25 +2,25 @@ package clases;
 
 public class Orden {
     
+	private int orderNumber;	//numero de orden asignado automaticamente
 	private String description; //descripcion del problema del aparato
     private String dateIn;
     private String dateOut;
     private int clientRut;		//rut del cliente al cual pertenece
     private int techNumber;	//numero del tecnico a quien fue asignada
-    private int orderNumber;	//numero de orden asignado automaticamente
     private int price;
     private SList partsList;	//lista de piezas a cambiar
     private int complex;		//suma de las complejidades de las piezas
     private boolean checked;	//revision hecha
     private boolean done;		//orden lista
 
-    public Orden(String description, String dateIn, int clientRut, int techNumber, int orderNumber) {
-        this.description = description;
+    public Orden(int orderNumber, String description, String dateIn, int clientRut, int techNumber) {
+    	this.orderNumber = orderNumber;
+    	this.description = description;
     	this.dateIn = dateIn;
     	this.dateOut = null;
         this.setClientRut(clientRut);
         this.setTechNumber(techNumber);
-        this.orderNumber = orderNumber;
         this.price = 0;
         this.partsList = new SList();
         this.complex = 0;
@@ -34,6 +34,14 @@ public class Orden {
     	setPrice();
     }
 
+	public int getOrderNumber() {
+		return orderNumber;
+	}
+
+	public void setOrderNumber(int orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+	
 	public String getDescription() {
 		return description;
 	}
@@ -72,14 +80,6 @@ public class Orden {
 
 	public void setTechNumber(int techNumber) {
 		this.techNumber = techNumber;
-	}
-
-	public int getOrderNumber() {
-		return orderNumber;
-	}
-
-	public void setOrderNumber(int orderNumber) {
-		this.orderNumber = orderNumber;
 	}
 
 	public int getPrice() {
