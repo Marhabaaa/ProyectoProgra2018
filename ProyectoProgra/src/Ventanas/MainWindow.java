@@ -133,12 +133,12 @@ public class MainWindow extends JFrame {
 		JButton btnNewButton = new JButton("Siguiente");
 		btnNewButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
-				
-				//if(existeRut(rut.getText()){
+				if(B.getClientsMap().contains(Integer.parseInt(rut.getText()))){
 					ventana1.setVisible(true);
-				//}else {
+				}
+				else {
 					ventana2.setVisible(true);
-				//}
+				}
 			};
 		});
 		btnNewButton.setBounds(356, 190, 123, 49);
