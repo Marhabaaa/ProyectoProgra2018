@@ -6,37 +6,59 @@ import java.io.*;
 
 
 public class Report {
-	File f= new File ("Reporte");
-
-
-public void ganaciasTotales(SList ordenes){
+	
 	Orden o;
 	int suma;
-	
-	try {
-		FileWriter w = new FileWriter(f);
-		BufferedWriter bw = new BufferedWriter(w);
-	    PrintWriter wr = new PrintWriter(bw);
-		wr.println("numero de orden			Tecnico				Ganancia ");
-		for(int i=0;i<=ordenes.size();i++){
-			o=(Orden)ordenes.get(i);
-			if(o.isDone()) {
-			//funcion append es para seguir escribiendo debabo de lo que ya existia
-			wr.append(+o.getOrderNumber()"     	"+o.getTecNumber()" 		"o.getPrice());
+	Pieza p;
+
+	public void ganaciasTotales(SList ordenes) throws IOException{
+
+		File f= new File ("Reporte.txt");
+		if(f.exists()) {
+			BufferedWriter bw = new BufferedWriter(new FileWriter("Reporte.txt"));
+			bw.write("    Numero de orden 	    	Tecnico			Ganacia por orden \n");
+		
+			for (int i=0;i<ordenes.size();i++) {
+				o = (Orden)ordenes.get(i);
+				if(o.isDone()) {
+				   bw.write(""+i+" " + o.getOrderNumber()+"		" + o.getTechNumber()+ "		" + o.getPrice()+"\n");
+				   suma = suma + o.getProfit();
+				}
 			}
-			suma=suma+o.getPrice();
+			bw.write("el precio total es: "+ suma);
+			bw.close();	
 		}
-		wr.append("Ganancias Totales"+suma);
-			
+		}
+		
+	
+/*	public void ganaciasTotalesPantalla(Slist ordenes) {
+		for (int i=0;i<ordenes.size();i++) {
+			o = (Orden)ordenes.get(i);
+			if(o.isDone()) {
+			  
+			   suma = suma + o.getProfit();
+			}
+		}
 	}
-	 catch (Exception e) {
-    e.printStackTrace();
-	}	
-	
-	wr.close();
-	bw.close();	
-	f.close();
-	
+		
+	}*/
+	public void stock(SList stock) throws IOException {
+		File f= new File ("ReporteStock.txt");
+		if(f.exists()) {
+			BufferedWriter bw = new BufferedWriter(new FileWriter("ReporteStock.txt"));
+			bw.write(" Matarial del inventario \n");
+			
+		
+			bw.write("Codigo           Nombre                       Cantidad \n");
+			for (int i=0;i<stock.size();i++) {
+				p = (Pieza)stock.get(i);
+				bw.write(" " +p.getCode()+ "		"+p.getDescription()+"		"+p.getCant() +"\n");	
+			}
+			bw.write("el precio total es: "+ suma);
+			bw.close();	
+		}
+		
+	}
 }
 
-}
+

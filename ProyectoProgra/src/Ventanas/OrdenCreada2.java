@@ -10,6 +10,9 @@ import java.awt.SystemColor;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class OrdenCreada2 extends JFrame {
 
@@ -18,7 +21,7 @@ public class OrdenCreada2 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public OrdenCreada2() {
+	public OrdenCreada2(String nombre) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 570, 354);
 		contentPane = new JPanel();
@@ -33,7 +36,7 @@ public class OrdenCreada2 extends JFrame {
 		label.setBounds(108, 91, 354, 42);
 		contentPane.add(label);
 		
-		JLabel label_1 = new JLabel("Para <dynamic>");
+		JLabel label_1 = new JLabel("Para <dynamic>"+ nombre);
 		label_1.setForeground(Color.WHITE);
 		label_1.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
 		label_1.setBounds(206, 126, 133, 34);
@@ -48,5 +51,28 @@ public class OrdenCreada2 extends JFrame {
 		lblTiempoEstimado.setForeground(SystemColor.text);
 		lblTiempoEstimado.setBounds(195, 196, 174, 14);
 		contentPane.add(lblTiempoEstimado);
+		
+		JButton btnFinalizar = new JButton("Finalizar");
+		btnFinalizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				OrdenCreada2.this.dispose();
+			}
+		});
+		btnFinalizar.setBounds(280, 221, 89, 23);
+		contentPane.add(btnFinalizar);
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//BORRAR CLIENTE Y ORDEN DEL SISTEMA
+				OrdenCreada2.this.dispose();
+			}
+		});
+		btnCancelar.setBounds(157, 221, 89, 23);
+		contentPane.add(btnCancelar);
+	}
+
+	public void OrdenCreada21(String nombre) {
+		// TODO Auto-generated constructor stub
 	}
 }

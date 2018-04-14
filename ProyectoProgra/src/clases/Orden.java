@@ -14,7 +14,23 @@ public class Orden {
     private boolean checked;	//revision hecha
     private boolean done;		//orden lista
 
-    public Orden(int orderNumber, String description, String dateIn, int clientRut, int techNumber) {
+    
+    public Orden(int orderNumber, String description, String dateIn, String dateOut, int clientRut, int techNumber,
+			int price, SList partsList, int complex, boolean checked, boolean done) {
+		this.orderNumber = orderNumber;
+		this.description = description;
+		this.dateIn = dateIn;
+		this.dateOut = dateOut;
+		this.clientRut = clientRut;
+		this.techNumber = techNumber;
+		this.price = price;
+		this.partsList = partsList;
+		this.complex = complex;
+		this.checked = checked;
+		this.done = done;
+	}
+
+	public Orden(int orderNumber, String description, String dateIn, int clientRut, int techNumber) {
     	this.orderNumber = orderNumber;
     	this.description = description;
     	this.dateIn = dateIn;
@@ -143,11 +159,6 @@ public class Orden {
 		
 		return sum + (calculateComplexity() * 1000);
 	}
-	
-/*	public int calculateDateOut() {					//calcula la fecha estimada de entrega del producto
-		return technician.estimateDateOut(complex);
-	}
-*/
 	
 	public int getProfit() {
 		return calculateComplexity() * 1000;

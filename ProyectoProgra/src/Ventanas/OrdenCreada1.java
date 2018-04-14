@@ -21,8 +21,7 @@ public class OrdenCreada1 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	//public OrdenCreada1(String nombre) {
-	public OrdenCreada1() {
+	public OrdenCreada1(String nombre) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 570, 354);
 		contentPane = new JPanel();
@@ -50,18 +49,20 @@ public class OrdenCreada1 extends JFrame {
 		JButton btnMenuPrincipal = new JButton("Finalizar");
 		btnMenuPrincipal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MainWindow ventana = new MainWindow();
-				setVisible(false);
-				ventana.setVisible(true);
+				OrdenCreada1.this.dispose();
 			}
 		});
 		btnMenuPrincipal.setBounds(403, 235, 108, 23);
 		contentPane.add(btnMenuPrincipal);
 		
-		JLabel lblPara = new JLabel("Para <dynamic>");
+		JLabel lblPara = new JLabel("Para " + nombre);
 		lblPara.setForeground(SystemColor.text);
 		lblPara.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
 		lblPara.setBounds(194, 130, 133, 34);
 		contentPane.add(lblPara);
+	}
+
+	public void OrdenCreada11(String nombre) {
+		// TODO Auto-generated constructor stub
 	}
 }
