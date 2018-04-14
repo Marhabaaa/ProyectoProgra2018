@@ -63,10 +63,11 @@ public class MainWindow extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws SQLException 
 	 */
-	public MainWindow() {
+	public MainWindow() throws SQLException {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainWindow.class.getResource("/imageness/fondo-azul-836335-1.jpg")));
-		setTitle("11 chupalo entonceh");
+		setTitle("RepairURPC");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 554, 349);
 		contentPane = new JPanel();
@@ -95,25 +96,9 @@ public class MainWindow extends JFrame {
 		lblNewLabel.setBounds(397, 281, 136, 14);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Siguiente");
-		btnNewButton.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent arg0) {
-				
-				//if(existeRut(rut.getText()){
-					VentanaPersona ventana1 = new VentanaPersona(rut.getText(),problema.getText(), B);
-					setVisible(false);
-					ventana1.setVisible(true);
-				//}else {
-					//VentanaPersonaNoExiste ventana2 = new VentanaPersonaNoExiste(rut.getText(),problema.getText());
-					//setVisible(false);
-					//ventana2.setVisible(true);
-				//}
-				
-				
-			};
-		});
-		btnNewButton.setBounds(356, 190, 123, 49);
-		contentPane.add(btnNewButton);
+		
+		
+		
 		
 		JLabel lblNuevaOrden = new JLabel("Nueva Orden: ");
 		lblNuevaOrden.setForeground(SystemColor.text);
@@ -141,5 +126,22 @@ public class MainWindow extends JFrame {
 		problema.setBounds(164, 149, 182, 90);
 		contentPane.add(problema);
 		problema.setColumns(10);
+		
+		VentanaPersona ventana1 = new VentanaPersona(rut.getText(),problema.getText(), B);
+		VentanaPersonaNoExiste ventana2 = new VentanaPersonaNoExiste(rut.getText(),problema.getText(), B);
+		
+		JButton btnNewButton = new JButton("Siguiente");
+		btnNewButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0){
+				
+				if(existeRut(rut.getText()){
+					ventana1.setVisible(true);
+				}else {
+					ventana2.setVisible(true);
+				}
+			};
+		});
+		btnNewButton.setBounds(356, 190, 123, 49);
+		contentPane.add(btnNewButton);
 	}
 }
