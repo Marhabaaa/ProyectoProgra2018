@@ -12,7 +12,7 @@ public class SistemaServicioTecnico {
 	private SMap clientsMap;
 	private SMap clientOrdersMap;
 	private SMap techOrdersMap;
-	private SMap OrderParts;
+	private SMap OrderPartsMap;
 	private SList techList;
 	private int orderNumber;	//variable para asignacion de numero de orden
 	private int techNumber;		//variable para asignacion de numero de tecnico
@@ -69,7 +69,7 @@ public class SistemaServicioTecnico {
 			
 			Pieza aux = new Pieza(code, description, cant, price, complex);
 			
-			stockMap.add(code, aux);
+			stockMap.put(code, aux);
 		}
 		
 		return stockMap;

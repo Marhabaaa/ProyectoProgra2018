@@ -42,7 +42,7 @@ public class Cliente extends Persona {
 	
 	public boolean addOrder(Orden order) {
 		if(orders.size() < maxOrders) {
-			orders.add(order.getOrderNumber(), order);
+			orders.put(order.getOrderNumber(), order);
 			return true;
 		}
 		return false;

@@ -15,7 +15,7 @@ public class SMap {
 		return map.containsKey(key);
 	}
 	
-	public boolean add(int key, Object o) {
+	public boolean put(int key, Object o) {
 		map.put(key, o);
 		return true;
 	}
