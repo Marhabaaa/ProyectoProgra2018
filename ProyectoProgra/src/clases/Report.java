@@ -6,38 +6,30 @@ import java.io.*;
 
 
 public class Report {
-	File f= new File ("Reporte");
+	
 
 
 public void ganaciasTotales(SList ordenes){
 	Orden o;
 	int suma;
+	File f= new File ("Reporte.txt");
+	if(f.exists()) {
+		BufferedWriter bw = new BufferedWriter(new FileWriter("Reporte.txt"));
+		bw.write("    Numero de orden 	    	Tecnico			Ganacia por orden \n");
 	
-	try {
-		FileWriter w = new FileWriter(f);
-		BufferedWriter bw = new BufferedWriter(w);
-	    PrintWriter wr = new PrintWriter(bw);
-		wr.println("numero de orden			Tecnico				Ganancia ");
-		for(int i=0;i<=ordenes.size();i++){
-			o=(Orden)ordenes.get(i);
+		for (int i=0;i<ordenes.size();i++) {
+			o = (Orden)ordenes.get(i);
 			if(o.isDone()) {
-			//funcion append es para seguir escribiendo debabo de lo que ya existia
-			wr.append(+o.getOrderNumber()"\t"+o.getTecNumber()"\t"o.getPrice());
+			   bw.write(""+i+" " + o.getOrderNumber()+"		" + o.getTecNumber()+ "		" + o.getPrice()+"\n");
 			}
-			suma=suma+o.getPrice();
 		}
-		wr.append("Ganancias Totales"+suma);
-		bw.close();
-		wr.close();
-			
+
+		
 	}
-	 catch (Exception e) {
-    e.printStackTrace();
-	}	
-
+	bw.close();
 	
-
 	
 }
+
 
 }
