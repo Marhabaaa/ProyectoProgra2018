@@ -21,4 +21,8 @@ public class SList {
 	public int size() {
 		return list.size();
 	}
+	
+	public boolean isEmpty() {
+		return list.isEmpty();
+	}
 }

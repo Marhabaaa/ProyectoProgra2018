@@ -10,13 +10,17 @@ public class SistemaServicioTecnico {
 	private SMap stockMap;
 	private SMap ordersMap;
 	private SMap clientsMap;
+	private SMap clientOrdersMap;
+	private SMap techOrdersMap;
+	private SMap OrderParts;
 	private SList techList;
-	private int orderNumber = 0; //variable para asignacion de numero de orden
+	private int orderNumber;	//variable para asignacion de numero de orden
+	private int techNumber;		//variable para asignacion de numero de tecnico
 	
 	public SistemaServicioTecnico() throws SQLException {
 		stockMap = getStockMapFromDB();
 		ordersMap = new SMap();
-		clientsMap = new SMap();
+		setClientsMap(new SMap());
 		techList = new SList();
 	}
 
@@ -28,6 +32,14 @@ public class SistemaServicioTecnico {
 		this.techList = techList;
 		this.orderNumber = orderNumber;
 	}*/
+	
+	public SMap getClientsMap() {
+		return clientsMap;
+	}
+
+	public void setClientsMap(SMap clientsMap) {
+		this.clientsMap = clientsMap;
+	}
 	
 	public void showTest(int key) {
 		System.out.println("Name: " + ((Pieza) stockMap.get(key)).getDescription());
@@ -101,4 +113,28 @@ public class SistemaServicioTecnico {
 		return s;
 	}
 	
+	public Tecnico leastWorkload() {
+		if(techList.isEmpty())
+			return null;
+		
+		int i = 1, least, auxLeast;
+		Tecnico aux = (Tecnico) techList.get(0);
+		least = aux.getWorkload();
+		
+		while(i < techList.size()) {
+			auxLeast = ((Tecnico) techList.get(i)).getWorkload();
+			if(auxLeast < least) {
+				least = auxLeast;
+				aux = (Tecnico) techList.get(i);
+			}
+			i++;
+		}
+		
+		return aux;
+	}
+	
+	public int getNewOrderNumber() {
+		orderNumber++;
+		return orderNumber;
+	}
 }

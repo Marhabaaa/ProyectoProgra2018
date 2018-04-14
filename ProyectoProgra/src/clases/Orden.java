@@ -5,33 +5,33 @@ public class Orden {
 	private String description; //descripcion del problema del aparato
     private String dateIn;
     private String dateOut;
-    private int clientRut;
-    private int orderNumber = 0; //numero de orden asignado automaticamente
-    private int tecNumber;
+    private int clientRut;		//rut del cliente al cual pertenece
+    private int techNumber;	//numero del tecnico a quien fue asignada
+    private int orderNumber;	//numero de orden asignado automaticamente
     private int price;
-    private SList partsList;
-    private boolean done;
+    private SList partsList;	//lista de piezas a cambiar
+    private int complex;		//suma de las complejidades de las piezas
+    private boolean checked;	//revision hecha
+    private boolean done;		//orden lista
 
-    public Orden(){
-        dateIn = "";  
-        dateOut = "";
-        clientRut = 0;
-        tecNumber = 0;
-        orderNumber = 0;
-        price = 0;
-        partsList = new SList();
-        setDone(false);
-    }
-
-    public Orden(String dateIn, String dateOut, int clientRut, int tecNumber, int orderNumber, int price, boolean done) {
-        this.dateIn = dateIn;
-        this.dateOut = dateOut;
-        this.clientRut = clientRut;
-        this.tecNumber = tecNumber;
+    public Orden(String description, String dateIn, int clientRut, int techNumber, int orderNumber) {
+        this.description = description;
+    	this.dateIn = dateIn;
+    	this.dateOut = null;
+        this.setClientRut(clientRut);
+        this.setTechNumber(techNumber);
         this.orderNumber = orderNumber;
-        this.price = price;
+        this.price = 0;
         this.partsList = new SList();
-        this.setDone(done);
+        this.complex = 0;
+        this.checked = false;
+        this.done = false;
+    }
+    
+    public void set() {
+    	setChecked(true);
+    	setComplex();
+    	setPrice();
     }
 
 	public String getDescription() {
@@ -66,6 +66,14 @@ public class Orden {
 		this.clientRut = clientRut;
 	}
 
+	public int getTechNumber() {
+		return techNumber;
+	}
+
+	public void setTechNumber(int techNumber) {
+		this.techNumber = techNumber;
+	}
+
 	public int getOrderNumber() {
 		return orderNumber;
 	}
@@ -74,20 +82,12 @@ public class Orden {
 		this.orderNumber = orderNumber;
 	}
 
-	public int getTecNumber() {
-		return tecNumber;
-	}
-
-	public void setTecNumber(int tecNumber) {
-		this.tecNumber = tecNumber;
-	}
-
 	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
-		this.price = price;
+	public void setPrice() {
+		this.price = calculatePrice();
 	}
 
 	public SList getPartsList() {
@@ -98,6 +98,22 @@ public class Orden {
 		this.partsList = partsList;
 	}
 	
+	public int getComplex() {
+		return complex;
+	}
+
+	public void setComplex() {
+		this.complex = calculateComplexity();
+	}
+
+	public boolean isChecked() {
+		return checked;
+	}
+
+	public void setChecked(boolean checked) {
+		this.checked = checked;
+	}
+
 	public boolean isDone() {
 		return done;
 	}
@@ -105,9 +121,35 @@ public class Orden {
 	public void setDone(boolean done) {
 		this.done = done;
 	}
-
-	public int getNewOrderNumber() {
-		orderNumber++;
-		return orderNumber;
+	
+	public int calculateComplexity() {	//calcula complejidad sumando la complejidad de cada pieza
+		int i = 0, sum = 0;
+		
+		while(i < partsList.size()) {
+			sum += ((Pieza) partsList.get(i)).getComplex();
+			i++;
+		}
+		
+		return sum;
+	}
+	
+	public int calculatePrice() {	//calcula precio sumando el precio de cada pieza mas la complejidad multiplicada por 1000
+		int i = 0, sum = 0;
+		
+		while(i < partsList.size()) {
+			sum += ((Pieza) partsList.get(i)).getPrice();
+			i++;
+		}
+		
+		return sum + (calculateComplexity() * 1000);
+	}
+	
+/*	public int calculateDateOut() {					//calcula la fecha estimada de entrega del producto
+		return technician.estimateDateOut(complex);
+	}
+*/
+	
+	public int getProfit() {
+		return calculateComplexity() * 1000;
 	}
 }

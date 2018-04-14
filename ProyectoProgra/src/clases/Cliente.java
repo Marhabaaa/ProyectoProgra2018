@@ -2,40 +2,28 @@ package clases;
 
 public class Cliente extends Persona {
     
-    private int clientType;
+    private boolean isBusiness;
     private int maxOrders;	//maximo numero de ordenes permitidas por cliente segun tipo de cliente
     private SMap orders;
-            
-    public Cliente(int clientType) {	//constructor nulo
-    	super();
-        this.clientType = clientType;
-        
-        maxOrders = 5;
-        
-        if(clientType == 1)
-            maxOrders = 20;
-        
-        orders = new SMap();
-    }
-   
-    public Cliente(String name, int rut, String phoneNumber, String eMail, int clientType) {
-    	super(name, rut, phoneNumber, eMail);
-    	this.clientType = clientType;
+
+	public Cliente(int rut, String name, String phoneNumber, String eMail, boolean isBusiness) {
+    	super(rut, name, phoneNumber, eMail);
+    	this.setBusiness(isBusiness);
     	
-        if(clientType == 1)
+    	maxOrders = 5;
+        if(isBusiness)
             maxOrders = 20;
         
         orders = new SMap();
     }
-
-	public int getClientType() {
-		return clientType;
+	
+    public boolean isBusiness() {
+		return isBusiness;
 	}
-
-	public void setClientType(int clientType) {
-		this.clientType = clientType;
+	public void setBusiness(boolean isBusiness) {
+		this.isBusiness = isBusiness;
 	}
-
+	
 	public int getMaxOrders() {
 		return maxOrders;
 	}
