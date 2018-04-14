@@ -4,17 +4,21 @@ public class Cliente extends Persona {
     
     private boolean isBusiness;
     private int maxOrders;	//maximo numero de ordenes permitidas por cliente segun tipo de cliente
-    private SMap orders;
+    private SList orders;
+
+    
+	public Cliente(int rut, String name, String phoneNumber, String eMail, boolean isBusiness, SList orders) {
+		super(rut, name, phoneNumber, eMail);
+		this.isBusiness = isBusiness;
+		this.maxOrders = calculateMaxOrders(isBusiness);
+		this.orders = orders;
+	}
 
 	public Cliente(int rut, String name, String phoneNumber, String eMail, boolean isBusiness) {
     	super(rut, name, phoneNumber, eMail);
     	this.setBusiness(isBusiness);
-    	
-    	maxOrders = 5;
-        if(isBusiness)
-            maxOrders = 20;
-        
-        orders = new SMap();
+        this.maxOrders = calculateMaxOrders(isBusiness);
+        orders = new SList();
     }
 	
     public boolean isBusiness() {
@@ -32,23 +36,19 @@ public class Cliente extends Persona {
 		this.maxOrders = maxOrders;
 	}
 
-	public SMap getOrders() {
+	public SList getOrders() {
 		return orders;
 	}
 
-	public void setOrders(SMap orders) {
+	public void setOrders(SList orders) {
 		this.orders = orders;
 	}
 	
-	public boolean addOrder(Orden order) {
-		if(orders.size() < maxOrders) {
-			orders.add(order.getOrderNumber(), order);
-			return true;
-		}
-		return false;
-	}
-	
-	public void showReport() {
-		
+	public int calculateMaxOrders(boolean isBusiness) {
+		int max = 5;
+        if(isBusiness)
+            max = 20;
+        
+        return max;
 	}
 }

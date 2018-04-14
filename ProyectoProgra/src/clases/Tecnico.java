@@ -2,25 +2,34 @@ package clases;
 
 public class Tecnico extends Persona {
 	
-    private int tecNumber;
+    private int techNumber;
     private int dwh;	//daily working hours; horas de trabajo diario de tecnico segun contrato
     private SList orders;
     private int workload;	//cantidad de trabajo asignada al momento
 
-    public Tecnico(int rut, String name, String phoneNumber, String eMail, int tecNumber, int dwh) {
+    
+    public Tecnico(int rut, String name, String phoneNumber, String eMail, int tecNumber, int dwh, SList orders, int workload) {
 		super(rut, name, phoneNumber, eMail);
-		this.tecNumber = tecNumber;
+		this.techNumber = tecNumber;
+		this.dwh = dwh;
+		this.orders = orders;
+		this.workload = workload;
+	}
+
+	public Tecnico(int rut, String name, String phoneNumber, String eMail, int tecNumber, int dwh) {
+		super(rut, name, phoneNumber, eMail);
+		this.techNumber = tecNumber;
 		this.dwh = dwh;
 		this.orders = new SList();
 		this.workload = 0;
 	}
     
-	public int getTecNumber() {
-		return tecNumber;
+	public int getTechNumber() {
+		return techNumber;
 	}
 	
-	public void setTecNumber(int tec_number) {
-		this.tecNumber = tec_number;
+	public void setTechNumber(int tec_number) {
+		this.techNumber = tec_number;
 	}
 	
 	public int getDwh() {
@@ -48,8 +57,8 @@ public class Tecnico extends Persona {
 	}
 	
 	public int getNewTechNumber() {
-		tecNumber++;
-		return tecNumber;
+		techNumber++;
+		return techNumber;
 	}
 	
 	public void addOrder(Orden order) {	//agrega orden y a la vez retorna dias de retraso de entrega de esta
