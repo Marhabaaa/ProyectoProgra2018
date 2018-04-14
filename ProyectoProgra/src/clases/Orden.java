@@ -160,11 +160,6 @@ public class Orden {
 		return sum + (calculateComplexity() * 1000);
 	}
 	
-/*	public int calculateDateOut() {					//calcula la fecha estimada de entrega del producto
-		return technician.estimateDateOut(complex);
-	}
-*/
-	
 	public int getProfit() {
 		return calculateComplexity() * 1000;
 	}

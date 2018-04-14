@@ -32,8 +32,8 @@ public class MySQLconnection {
 			
 			conn = DriverManager.getConnection(url, user, pass);
 			
-			//if(conn != null)
-				//System.out.println("Conexion con BD exitosa");
+			if(conn != null)
+				System.out.println("Conexion con BD exitosa");
 			
 		} catch (ClassNotFoundException e) {
 			System.out.println("Error al cargar el Driver");
