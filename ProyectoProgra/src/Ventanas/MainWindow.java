@@ -134,11 +134,11 @@ public class MainWindow extends JFrame {
 		btnNewButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				
-				if(existeRut(rut.getText()){
+				//if(existeRut(rut.getText()){
 					ventana1.setVisible(true);
-				}else {
+				//}else {
 					ventana2.setVisible(true);
-				}
+				//}
 			};
 		});
 		btnNewButton.setBounds(356, 190, 123, 49);
