@@ -6,16 +6,8 @@ public class Pieza {
     private String description;
     private int cant;
     private int price;
-    private int complex;
-
-    public Pieza() {
-    	code = 0;
-        description = "";
-        cant = 0;
-        price = 0;
-        complex = 0;
-    }
-
+    private int complex; //complejidad de trabajo con la pieza traducida en horas de trabajo
+    
     public Pieza(int code, String name, int stock, int price, int complex) {
     	this.code = code;
     	this.description = name;

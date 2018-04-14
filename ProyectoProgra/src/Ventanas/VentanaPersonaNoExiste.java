@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import clases.Cliente;
 import clases.SistemaServicioTecnico;
 
 import java.awt.SystemColor;
@@ -24,6 +25,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
 public class VentanaPersonaNoExiste extends JFrame {
 
 	private JPanel contentPane;
@@ -33,13 +35,15 @@ public class VentanaPersonaNoExiste extends JFrame {
 	private JLabel lblCorreo;
 	private JButton btnNewButton;
 	private JButton btnAtrs;
+	private JTextField textField;
 
 
 	/**
 	 * Create the frame.
 	 */
 	public VentanaPersonaNoExiste(String rut, String problema,SistemaServicioTecnico B) throws SQLException {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Cliente client;
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 564, 354);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.desktop);
@@ -50,12 +54,14 @@ public class VentanaPersonaNoExiste extends JFrame {
 		JLabel lblNombre = new JLabel("Nombre:");
 		lblNombre.setForeground(SystemColor.text);
 		lblNombre.setBounds(65, 80, 66, 14);
+		
 		contentPane.add(lblNombre);
 		
 		nombre = new JTextField();
 		nombre.setBounds(141, 77, 104, 20);
 		contentPane.add(nombre);
 		nombre.setColumns(10);
+		
 		
 		telefono = new JTextField();
 		telefono.setColumns(10);
@@ -83,18 +89,13 @@ public class VentanaPersonaNoExiste extends JFrame {
 		contentPane.add(lblCorreo);
 		
 		
-		JRadioButton rdbtnPersona = new JRadioButton("Persona");	
-		rdbtnPersona.setForeground(SystemColor.text);
-		rdbtnPersona.setBackground(SystemColor.desktop);
-		rdbtnPersona.setBounds(305, 164, 87, 23);
-		contentPane.add(rdbtnPersona);
-		
-		
 		JRadioButton rdbtnEmpresa = new JRadioButton("Empresa");
 		rdbtnEmpresa.setForeground(SystemColor.text);
 		rdbtnEmpresa.setBackground(SystemColor.desktop);
-		rdbtnEmpresa.setBounds(409, 164, 123, 23);
+		rdbtnEmpresa.setBounds(303, 207, 123, 23);
 		contentPane.add(rdbtnEmpresa);
+		
+		
 		
 		btnNewButton = new JButton("Siguiente");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -110,13 +111,25 @@ public class VentanaPersonaNoExiste extends JFrame {
 		btnAtrs = new JButton("Atr\u00E1s");
 		btnAtrs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				MainWindow ventana = new MainWindow();
-				setVisible(false);
-				ventana.setVisible(true);
+				VentanaPersonaNoExiste.this.dispose();
 			}
 		});
 		btnAtrs.setBounds(305, 244, 89, 23);
 		contentPane.add(btnAtrs);
+		
+		JLabel lblTipoDeCliente = new JLabel("Tipo de Cliente:");
+		lblTipoDeCliente.setForeground(SystemColor.info);
+		lblTipoDeCliente.setBounds(65, 248, 104, 14);
+		contentPane.add(lblTipoDeCliente);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(141, 245, 104, 20);
+		contentPane.add(textField);
+		
+		//PONER VARIABLE TIPO BOOLEAN QUE GUARDE TRUE SI ES EMPRESA Y FALSE SI ES PERSONA el textField
+		//Cliente client= new Cliente(nombre.getText(),rut,telefono.getText(),correo.getText(),EMPRESAOPERSONA)
+		
 	
 	}
 }

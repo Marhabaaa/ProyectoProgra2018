@@ -47,8 +47,8 @@ public class VentanaPersona extends JFrame {
 		scrollPane.setBounds(156, 79, 129, 153);
 		contentPane.add(scrollPane);
 		
-		JList list = new JList();
-		list.setModel(new AbstractListModel() {
+		JList listaPiezas = new JList();
+		listaPiezas.setModel(new AbstractListModel() {
 			String[] values = B.getStockDescriptions();
 			public int getSize() {
 				return values.length;
@@ -57,27 +57,14 @@ public class VentanaPersona extends JFrame {
 				return values[index];
 			}
 		});
-		scrollPane.setViewportView(list);
+		scrollPane.setViewportView(listaPiezas);
 		
-		
-		
-		/*JList list = new JList();
-		list.setModel(new AbstractListModel() {
-			String[] values = new String[] {"a", "b", "caballo", "chupalo entonceh", "chupalla", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "\u00F1", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
-		scrollPane.setViewportView(list);
-		*/
 		
 		JButton agregarPieza = new JButton("Agregar");
+		SList piezasAgregadas;
 		agregarPieza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//values.getElementAt(i);
+				
 			}
 		});
 		agregarPieza.setBounds(295, 79, 89, 23);
@@ -101,7 +88,6 @@ public class VentanaPersona extends JFrame {
 		JButton button_1 = new JButton("Atr\u00E1s");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				MainWindow ventana = new MainWindow();
 				setVisible(false);
 				ventana.setVisible(true);
 			}
@@ -112,6 +98,20 @@ public class VentanaPersona extends JFrame {
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(295, 113, 129, 119);
 		contentPane.add(scrollPane_1);
+		
+		/*JList piezasAgregadas = new JList();
+		piezasAgregadas.setModel(new AbstractListModel() {
+			String[] piecitas = B.getStockDescriptions();
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
+		
+		scrollPane_1.setViewportView(piezasAgregadas);
+		*/
 		
 		/*JList list_1 = new JList();
 		list_1.setModel(new AbstractListModel() {

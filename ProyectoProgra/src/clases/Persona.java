@@ -2,39 +2,39 @@ package clases;
 
 public class Persona {
 	
+	protected int rut;
     protected String name;
-    protected int rut;
     protected String phoneNumber;
     protected String eMail;
     
     public Persona() {
+    	rut = 0;
 		name = "";
-		rut = 0;
 		phoneNumber = "";
 		eMail = "";
 	}
     
-    public Persona(String name, int rut, String phoneNumber, String eMail) {
-		this.name = name;
-		this.rut = rut;
+    public Persona(int rut, String name, String phoneNumber, String eMail) {
+    	this.rut = rut;
+    	this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.eMail = eMail;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-	
 	public int getRut() {
 		return rut;
 	}
 
 	public void setRut(int rut) {
 		this.rut = rut;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPhoneNumber() {
