@@ -22,20 +22,21 @@ public void ganaciasTotales(SList ordenes){
 			o=(Orden)ordenes.get(i);
 			if(o.isDone()) {
 			//funcion append es para seguir escribiendo debabo de lo que ya existia
-			wr.append(+o.getOrderNumber()"     	"+o.getTecNumber()" 		"o.getPrice());
+			wr.append(+o.getOrderNumber()"\t"+o.getTecNumber()"\t"o.getPrice());
 			}
 			suma=suma+o.getPrice();
 		}
 		wr.append("Ganancias Totales"+suma);
+		bw.close();
+		wr.close();
 			
 	}
 	 catch (Exception e) {
     e.printStackTrace();
 	}	
+
 	
-	wr.close();
-	bw.close();	
-	f.close();
+
 	
 }
 
