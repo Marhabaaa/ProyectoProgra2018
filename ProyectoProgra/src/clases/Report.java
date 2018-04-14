@@ -21,14 +21,17 @@ public class Report {
 				o = (Orden)ordenes.get(i);
 				if(o.isDone()) {
 				   bw.write(""+i+" " + o.getOrderNumber()+"		" + o.getTecNumber()+ "		" + o.getPrice()+"\n");
+				   suma = suma + o.getPrice();
 				}
 			}
 		}
+		bw.writer("el precio total es: "+ suma);
 		bw.close();	
 	}
 	
 	public void ganaciasTotalesPantalla(Slist ordenes) {
-		
+		Orden o
+		int suma;
 	}
 
 }
