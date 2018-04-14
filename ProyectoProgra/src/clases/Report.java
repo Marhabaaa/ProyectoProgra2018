@@ -11,7 +11,7 @@ public class Report {
 	int suma;
 	Pieza p;
 
-	public void ganaciasTotales(SList ordenes){
+	public void ganaciasTotales(SList ordenes) throws IOException{
 
 		File f= new File ("Reporte.txt");
 		if(f.exists()) {
@@ -42,7 +42,7 @@ public class Report {
 	}
 		
 	}*/
-	public void stock(SList stock) {
+	public void stock(SList stock) throws IOException {
 		File f= new File ("ReporteStock.txt");
 		if(f.exists()) {
 			BufferedWriter bw = new BufferedWriter(new FileWriter("ReporteStock.txt"));
@@ -52,7 +52,7 @@ public class Report {
 			bw.write("Codigo           Nombre                       Cantidad \n");
 			for (int i=0;i<stock.size();i++) {
 				p = (Pieza)stock.get(i);
-				bw.write(" "p.getCode()+ "		"+p.getDescription()+"		"+p.getCant()+"\n");		
+				bw.write(" " +p.getCode()+ "		"+p.getDescription()+"		"+p.getCant() +"\n");	
 			}
 			bw.write("el precio total es: "+ suma);
 			bw.close();	
