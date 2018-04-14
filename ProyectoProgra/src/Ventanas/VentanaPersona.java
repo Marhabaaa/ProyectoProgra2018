@@ -88,8 +88,7 @@ public class VentanaPersona extends JFrame {
 		JButton button_1 = new JButton("Atr\u00E1s");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				setVisible(false);
-				ventana.setVisible(true);
+				VentanaPersona.this.dispose();
 			}
 		});
 		button_1.setBounds(290, 257, 89, 23);
