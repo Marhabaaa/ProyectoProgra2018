@@ -7,11 +7,11 @@ import java.io.*;
 
 public class Report {
 	
-
+	Orden o;
+	int suma;
 
 	public void ganaciasTotales(SList ordenes){
-		Orden o;
-		int suma;
+
 		File f= new File ("Reporte.txt");
 		if(f.exists()) {
 			BufferedWriter bw = new BufferedWriter(new FileWriter("Reporte.txt"));
@@ -24,14 +24,15 @@ public class Report {
 				   suma = suma + o.getPrice();
 				}
 			}
+			
 		}
 		bw.writer("el precio total es: "+ suma);
 		bw.close();	
 	}
 	
 	public void ganaciasTotalesPantalla(Slist ordenes) {
-		Orden o
-		int suma;
+
+		
 	}
 
 }
