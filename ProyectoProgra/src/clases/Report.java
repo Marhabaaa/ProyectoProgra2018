@@ -9,6 +9,7 @@ public class Report {
 	
 	Orden o;
 	int suma;
+	Pieza p;
 
 	public void ganaciasTotales(SList ordenes){
 
@@ -20,19 +21,44 @@ public class Report {
 			for (int i=0;i<ordenes.size();i++) {
 				o = (Orden)ordenes.get(i);
 				if(o.isDone()) {
-				   bw.write(""+i+" " + o.getOrderNumber()+"		" + o.getTecNumber()+ "		" + o.getPrice()+"\n");
-				   suma = suma + o.getPrice();
+				   bw.write(""+i+" " + o.getOrderNumber()+"		" + o.getTechNumber()+ "		" + o.getPrice()+"\n");
+				   suma = suma + o.getProfit();
 				}
 			}
-
+			bw.write("el precio total es: "+ suma);
+			bw.close();	
 		}
-		bw.writer("el precio total es: "+ suma);
-		bw.close();	
-	}
+		}
+		
 	
-	public void ganaciasTotalesPantalla(Slist ordenes) {
-
+/*	public void ganaciasTotalesPantalla(Slist ordenes) {
+		for (int i=0;i<ordenes.size();i++) {
+			o = (Orden)ordenes.get(i);
+			if(o.isDone()) {
+			  
+			   suma = suma + o.getProfit();
+			}
+		}
+	}
+		
+	}*/
+	public void stock(SList stock) {
+		File f= new File ("ReporteStock.txt");
+		if(f.exists()) {
+			BufferedWriter bw = new BufferedWriter(new FileWriter("ReporteStock.txt"));
+			bw.write(" Matarial del inventario \n");
+			
+		
+			bw.write("Codigo           Nombre                       Cantidad \n");
+			for (int i=0;i<stock.size();i++) {
+				p = (Pieza)stock.get(i);
+				bw.write(" "p.getCode()+ "		"+p.getDescription()+"		"+p.getCant()+"\n");		
+			}
+			bw.write("el precio total es: "+ suma);
+			bw.close();	
+		}
 		
 	}
-
 }
+
+
