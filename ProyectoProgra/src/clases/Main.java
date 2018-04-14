@@ -6,9 +6,9 @@ public class Main {
 
 	public static void main(String[] args) throws SQLException {
 		
-		//SistemaServicioTecnico B = new SistemaServicioTecnico();
+		SistemaServicioTecnico B = new SistemaServicioTecnico();
 		
-		int i = 0;
+		//int i = 0;
 		
 		//B.showTest(1);
 		/*SList list = (SList) B.getStockMap().toSList();
