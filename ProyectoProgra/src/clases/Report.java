@@ -24,7 +24,7 @@ public class Report {
 				   suma = suma + o.getPrice();
 				}
 			}
-			
+
 		}
 		bw.writer("el precio total es: "+ suma);
 		bw.close();	
