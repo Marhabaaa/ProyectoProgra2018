@@ -55,6 +55,7 @@ public class OrdenCreada2 extends JFrame {
 		JButton btnFinalizar = new JButton("Finalizar");
 		btnFinalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				//AÑADE LA ORDEN A LA BASE DE DATOS
 				OrdenCreada2.this.dispose();
 			}
 		});
@@ -64,7 +65,7 @@ public class OrdenCreada2 extends JFrame {
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//BORRAR CLIENTE Y ORDEN DEL SISTEMA
+				//BORRAR CLIENTE
 				OrdenCreada2.this.dispose();
 			}
 		});

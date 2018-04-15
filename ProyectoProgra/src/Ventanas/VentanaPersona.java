@@ -29,18 +29,7 @@ public class VentanaPersona extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaPersona(String rut, String problema, SistemaServicioTecnico B) {
-
-		/*public void MetodoAgregarPieza(String pieza){				//metodo para agregar piezas
-			JButton agregarPieza = new JButton("Agregar");
-			SList piezasAgregadas;
-			agregarPieza.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-				}
-			});
-			agregarPieza.setBounds(295, 79, 89, 23);
-			contentPane.add(agregarPieza);
-		}*/
-		
+				
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 554, 354);
 		contentPane = new JPanel();
@@ -55,7 +44,6 @@ public class VentanaPersona extends JFrame {
 		contentPane.add(lblAgregarPiezas);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		
 		scrollPane.setBounds(156, 79, 129, 153);
 		contentPane.add(scrollPane);
 		
@@ -71,27 +59,29 @@ public class VentanaPersona extends JFrame {
 		});
 		scrollPane.setViewportView(listaPiezas);
 		
-		/*JList piezasAgregadas = new JList();				//HACER ESTO, este es el jlist de piezas agregadas
-		piezasAgregadas.setModel(new AbstractListModel() {
-			String[] values = 
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
+		//JList piezasAgregadas = new JList();					//HACER ESTO, este es el jlist de piezas agregadas
+		//piezasAgregadas.setModel(new AbstractListModel() {
+			//String[] values = 
+			//public int getSize() {
+				//return values.length;
+			//}
+			//public Object getElementAt(int index) {
+				//return values[index];
+			//}
+		//});
+		//scrollPane_1.setViewportView(piezasAgregadas);
 		
-		scrollPane_1.setViewportView(piezasAgregadas);
-		*/
 		
 		JButton agregarPieza = new JButton("Agregar");
+		//SList piezasAgregadas;
 		agregarPieza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 			}
 		});
 		agregarPieza.setBounds(295, 79, 89, 23);
 		contentPane.add(agregarPieza);
+//HOLA
 		
 		int rut1=Integer.parseInt(rut);
 		JButton button = new JButton("Siguiente");
