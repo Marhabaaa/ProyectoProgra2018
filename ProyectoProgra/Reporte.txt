@@ -1,0 +1,7 @@
+ Numero de orden 	    	Tecnico			Ganacia por orden 
+ 10				5				2000
+ 9				4				0
+ 8				3				0
+ 5				5				0
+ 2				2				1000
+el precio total es: 3000

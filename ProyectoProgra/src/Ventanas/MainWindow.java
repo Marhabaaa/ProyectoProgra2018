@@ -160,6 +160,16 @@ public class MainWindow extends JFrame {
 		btnNewButton.setBounds(356, 190, 123, 49);
 		contentPane.add(btnNewButton);
 		
+		JButton btnNewButton_1 = new JButton("Reportes");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Reportes ventanaReportes= new Reportes (B.getOrdersMap().toSList());
+				ventanaReportes.setVisible(true);
+			}
+		});
+		btnNewButton_1.setBounds(175, 0, 129, 23);
+		contentPane.add(btnNewButton_1);
+		
 		
 	}
 }
