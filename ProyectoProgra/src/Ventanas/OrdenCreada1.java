@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import clases.SList;
+
 import java.awt.SystemColor;
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
@@ -21,7 +24,7 @@ public class OrdenCreada1 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public OrdenCreada1(String nombre) {
+	public OrdenCreada1(String nombre, SList lista) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 570, 354);
 		contentPane = new JPanel();
@@ -60,9 +63,15 @@ public class OrdenCreada1 extends JFrame {
 		lblPara.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
 		lblPara.setBounds(194, 130, 133, 34);
 		contentPane.add(lblPara);
+		
+		JLabel lblNewLabel = new JLabel(""+(String) lista.get(0));
+		lblNewLabel.setBounds(57, 235, 46, 14);
+		contentPane.add(lblNewLabel);
 	}
 
-	public void OrdenCreada11(String nombre) {
+	public void OrdenCreada11(String nombre, SList lista) {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 }

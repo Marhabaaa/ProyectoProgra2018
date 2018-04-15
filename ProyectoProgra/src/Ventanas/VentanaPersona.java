@@ -24,11 +24,12 @@ import javax.swing.AbstractListModel;
 public class VentanaPersona extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField piezaAñadida;
 
 	/**
 	 * Create the frame.
 	 */
-	public VentanaPersona(String rut, String problema, SistemaServicioTecnico B) {
+	public VentanaPersona(String rut, String problema, SistemaServicioTecnico B, SList lista) {
 				
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 554, 354);
@@ -59,6 +60,10 @@ public class VentanaPersona extends JFrame {
 		});
 		scrollPane.setViewportView(listaPiezas);
 		
+		String selected = (String) listaPiezas.getSelectedValue();
+		int i=Integer.parseInt(selected);
+		lista.add(B.getStockMap().get(i));
+		
 		//JList piezasAgregadas = new JList();					//HACER ESTO, este es el jlist de piezas agregadas
 		//piezasAgregadas.setModel(new AbstractListModel() {
 			//String[] values = 
@@ -71,17 +76,20 @@ public class VentanaPersona extends JFrame {
 		//});
 		//scrollPane_1.setViewportView(piezasAgregadas);
 		
-		
-		JButton agregarPieza = new JButton("Agregar");
+		//////////////////////////////////////////////////////////
+		JButton agregarPieza = new JButton("Agregar otra");
 		//SList piezasAgregadas;
 		agregarPieza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				lista.add(piezaAñadida.getText());
+				VentanaPersona ventana1= new VentanaPersona(rut,problema,B,lista);
+				ventana1.setVisible(true);
+				VentanaPersona.this.dispose();
 			}
 		});
-		agregarPieza.setBounds(295, 79, 89, 23);
+		agregarPieza.setBounds(290, 209, 89, 23);
 		contentPane.add(agregarPieza);
-//HOLA
+///////////////////////////////////////////////////////////////
 		
 		int rut1=Integer.parseInt(rut);
 		JButton button = new JButton("Siguiente");
@@ -89,7 +97,7 @@ public class VentanaPersona extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String nombre = ((Component) B.getClientsMap().get(rut1)).getName();
 				//if(piezas==0) {	
-					OrdenCreada1 ventana = new OrdenCreada1(nombre);
+					OrdenCreada1 ventana = new OrdenCreada1(nombre,lista);
 					ventana.setVisible(true);
 					VentanaPersona.this.dispose();
 				//}else{
@@ -111,38 +119,16 @@ public class VentanaPersona extends JFrame {
 		button_1.setBounds(290, 257, 89, 23);
 		contentPane.add(button_1);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(295, 113, 129, 119);
-		contentPane.add(scrollPane_1);
-		
-		JList piezasAgregadas = new JList();
-		//piezasAgregadas.setModel(new AbstractListModel() {
-			//String[] piecitas = B.getStockDescriptions();
-			/*public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}*/
-		//});
-		
-		scrollPane_1.setViewportView(piezasAgregadas);
+		piezaAñadida = new JTextField();
+		piezaAñadida.setBounds(293, 181, 86, 20);
+		contentPane.add(piezaAñadida);
+		piezaAñadida.setColumns(10);
 		
 		
-		/*JList list_1 = new JList();
-		list_1.setModel(new AbstractListModel() {
-			List piezas = new List();
-			piezas.add(list.getElementAt(i));
-			public int getSize() {
-				return piezas.size();
-			}
-			public Object getElementAt(int index) {
-				return piezas.get(index);
-			}
-		});
-		scrollPane_1.setViewportView(list_1);*/
 		
 	
+		
+		
 		
 	}
 }
