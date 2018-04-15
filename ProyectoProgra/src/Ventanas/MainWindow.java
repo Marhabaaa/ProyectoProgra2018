@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import clases.Cliente;
+import clases.SList;
 import clases.SistemaServicioTecnico;
 
 import java.awt.Color;
@@ -137,10 +138,11 @@ public class MainWindow extends JFrame {
 		btnNewButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				JLabel label = new JLabel(""+rut.getText());
+				SList lista=null;
 				label.setBounds(194, 268, 46, 14);
 				contentPane.add(label);
 				if(B.getClientsMap().contains(Integer.parseInt(rut.getText()))){
-					VentanaPersona ventana1 = new VentanaPersona(rut.getText(),problema.getText(), B);
+					VentanaPersona ventana1 = new VentanaPersona(rut.getText(),problema.getText(), B, lista);
 					ventana1.setVisible(true);
 				}
 				else {
