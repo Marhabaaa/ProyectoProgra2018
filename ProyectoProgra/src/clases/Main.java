@@ -7,12 +7,7 @@ public class Main {
 
 	public static void main(String[] args) throws SQLException, IOException {
 		
-		SistemaServicioTecnico B = new SistemaServicioTecnico();
-		
-		Report r = new Report();
-		SList list = B.getOrdersMap().toSList();
-		
-		r.ganaciasTotales(list);
+		SST B = new SST();
 		
 		//int i = 0;
 		
