@@ -258,7 +258,7 @@ public class SistemaServicioTecnico {
 		String[] s = new String[list.size()];
 		
 		while(i < list.size()) {
-			s[i] = ((Pieza) list.get(i)).getDescription();
+			s[i] = ((Pieza) list.get(i)).getDescription() + " " + ((Pieza) list.get(i)).getCode();
 			i++;
 		}
 		
