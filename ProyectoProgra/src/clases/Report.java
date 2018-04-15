@@ -17,7 +17,7 @@ public class Report {
 		BufferedWriter bw = new BufferedWriter(new FileWriter("Reporte.txt"));
 		if(f.exists()) {
 
-			bw.write("    Numero de orden 	    	Tecnico			Ganacia por orden ");
+			bw.write(" Numero de orden 	    	Tecnico			Ganacia por orden ");
 			for (int i=0;i<ordenes.size();i++) {
 				o = (Orden)ordenes.get(i);
 				if(o.isDone()) {
@@ -55,8 +55,10 @@ public class Report {
 			bw.write("Codigo           Nombre                       Cantidad \n");
 			for (int i=0;i<stock.size();i++) {
 				p = (Pieza)stock.get(i);
+				bw.newLine();
 				bw.write(" " +p.getCode()+ "		"+p.getDescription()+"		"+p.getCant() +"\n");	
 			}
+			bw.newLine();
 			bw.write("el precio total es: "+ suma);
 			bw.close();	
 		}
