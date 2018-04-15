@@ -163,7 +163,7 @@ public class MainWindow extends JFrame {
 		JButton btnNewButton_1 = new JButton("Reportes");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Reportes ventanaReportes= new Reportes (B.getOrdersMap().toSList());
+				Reportes ventanaReportes= new Reportes (B.getOrdersMap().toSList(),B);
 				ventanaReportes.setVisible(true);
 			}
 		});

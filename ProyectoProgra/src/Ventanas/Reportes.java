@@ -11,6 +11,7 @@ import clases.Orden;
 import clases.Pieza;
 import clases.SList;
 import clases.SMap;
+import clases.SST;
 
 import java.awt.SystemColor;
 import javax.swing.JButton;
@@ -20,7 +21,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
-
+import clases.SST;
 public class Reportes extends JFrame {
 
 	private JPanel contentPane;
@@ -29,7 +30,7 @@ public class Reportes extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Reportes(SList ordenes) {
+	public Reportes(SList ordenes, SST B) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -51,7 +52,7 @@ public class Reportes extends JFrame {
 		JButton Stock = new JButton("Stock");
 		Stock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ReporteStock ventana2= new ReporteStock(ordenes);
+				ReporteStock ventana2= new ReporteStock(ordenes,B);
 				ventana2.setVisible(true);
 			}
 		});
@@ -205,9 +206,12 @@ public class Reportes extends JFrame {
 	}
 
 
-	public void Reportes1(SList sList) {
+	public void Reportes1(SList sList, SST b) {
 		// TODO Auto-generated constructor stub
 	}
+
+
+
 
 
 	

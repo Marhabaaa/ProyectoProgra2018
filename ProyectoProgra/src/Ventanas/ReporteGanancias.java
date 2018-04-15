@@ -67,7 +67,7 @@ public class ReporteGanancias extends JFrame {
 		for(int j=0;j<ordenes.size();j++) {			
 			o= (Orden)ordenes.get(j);
 				aux=o.getOrderNumber()+"		" + o.getTechNumber()+ "		" + o.getProfit();
-				modelo.addElement(j+1);
+				modelo.addElement((Object)aux);
 				
 		}
 		reportesDeOrdenes.setModel(modelo);
