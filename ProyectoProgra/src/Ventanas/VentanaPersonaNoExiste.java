@@ -98,17 +98,17 @@ public class VentanaPersonaNoExiste extends JFrame {
 		lblTipoDeCliente.setForeground(SystemColor.info);
 		lblTipoDeCliente.setBounds(65, 248, 104, 14);
 		contentPane.add(lblTipoDeCliente);
-		Cliente c;
-		if(tipoCliente.getText()=="empresa"){
-			c = new Cliente(Integer.parseInt(rut), nombre.getText(), telefono.getText(), correo.getText(), true);
-		}else {
-			c = new Cliente(Integer.parseInt(rut), nombre.getText(), telefono.getText()	, correo.getText(), false);
-		}
-		B.getClientsMap().put(Integer.parseInt(rut), c);
 		
 		btnNewButton = new JButton("Siguiente");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				Cliente c;
+				if(tipoCliente.getText()=="empresa"){
+					c = new Cliente(Integer.parseInt(rut), nombre.getText(), telefono.getText(), correo.getText(), true);
+				}else {
+					c = new Cliente(Integer.parseInt(rut), nombre.getText(), telefono.getText()	, correo.getText(), false);
+				}
+				B.getClientsMap().put(Integer.parseInt(rut), c);
 				VentanaPersonaNoExiste.this.dispose();
 			}
 		});

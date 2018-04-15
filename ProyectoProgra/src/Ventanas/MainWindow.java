@@ -138,7 +138,7 @@ public class MainWindow extends JFrame {
 		btnNewButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				JLabel label = new JLabel(""+rut.getText());
-				SList lista=null;
+				SList lista = new SList();
 				label.setBounds(194, 268, 46, 14);
 				contentPane.add(label);
 				if(B.getClientsMap().contains(Integer.parseInt(rut.getText()))){

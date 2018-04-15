@@ -10,6 +10,10 @@ import javax.swing.border.EmptyBorder;
 
 import clases.SList;
 import clases.SST;
+import clases.Cliente;
+import clases.Tecnico;
+import clases.Orden;
+import clases.Pieza;
 
 import java.awt.SystemColor;
 import javax.swing.JTextField;
@@ -81,7 +85,9 @@ public class VentanaPersona extends JFrame {
 		//SList piezasAgregadas;
 		agregarPieza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				lista.add(piezaAñadida.getText());
+				Pieza aux = (Pieza) B.getStockMap().get(Integer.parseInt(piezaAñadida.getText()));
+				if(aux != null)
+					lista.add(aux);
 				VentanaPersona ventana1= new VentanaPersona(rut,problema,B,lista);
 				ventana1.setVisible(true);
 				VentanaPersona.this.dispose();
@@ -92,19 +98,26 @@ public class VentanaPersona extends JFrame {
 ///////////////////////////////////////////////////////////////
 		
 		int rut1=Integer.parseInt(rut);
+		Tecnico auxT = B.leastWorkload();
 		JButton button = new JButton("Siguiente");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String nombre = ((Component) B.getClientsMap().get(rut1)).getName();
-				//if(piezas==0) {	
-					OrdenCreada1 ventana = new OrdenCreada1(nombre,lista);
+				Orden auxO;
+				auxO = new Orden(B.getNewOrderNumber(), problema, "15/04/2018", rut1, auxT.getTechNumber());
+				Cliente auxC = (Cliente) B.getClientsMap().get(rut1);
+				String nombre = auxC.getName();
+				if(lista.isEmpty()) {
+					OrdenCreada1 ventana = new OrdenCreada1(nombre, auxO, B);
 					ventana.setVisible(true);
 					VentanaPersona.this.dispose();
-				//}else{
-					OrdenCreada2 ventana1= new OrdenCreada2(nombre);
+				}else{
+					auxO.setPartsList(lista);
+					auxO.setDateOut(String.valueOf(B.delayOfReturn(auxO)));
+					auxO.set();
+					OrdenCreada2 ventana1= new OrdenCreada2(nombre, auxO, B);
 					ventana1.setVisible(true);
 					VentanaPersona.this.dispose();
-				//}
+				}
 			}
 		});
 		button.setBounds(389, 257, 89, 23);
@@ -123,12 +136,5 @@ public class VentanaPersona extends JFrame {
 		piezaAñadida.setBounds(293, 181, 86, 20);
 		contentPane.add(piezaAñadida);
 		piezaAñadida.setColumns(10);
-		
-		
-		
-	
-		
-		
-		
 	}
 }

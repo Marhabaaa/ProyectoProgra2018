@@ -8,6 +8,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import clases.SList;
+import clases.Pieza;
+import clases.Orden;
+import clases.Cliente;
+import clases.Tecnico;
+import clases.SST;
 
 import java.awt.SystemColor;
 import javax.swing.JLabel;
@@ -24,7 +29,7 @@ public class OrdenCreada1 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public OrdenCreada1(String nombre, SList lista) {
+	public OrdenCreada1(String nombre, Orden order, SST B) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 570, 354);
 		contentPane = new JPanel();
@@ -37,7 +42,7 @@ public class OrdenCreada1 extends JFrame {
 		lblOrdenNIngresada.setBounds(107, 31, 348, 66);
 		contentPane.add(lblOrdenNIngresada);
 		
-		JLabel lblOrdenNIngresada_1 = new JLabel("Orden N\u00B0 <dynamic> ingresada con \u00E9xito.");
+		JLabel lblOrdenNIngresada_1 = new JLabel("Orden N\u00B0 " + order.getOrderNumber() + " ingresada con \u00E9xito.");
 		lblOrdenNIngresada_1.setFont(new Font("Segoe UI Black", Font.PLAIN, 16));
 		lblOrdenNIngresada_1.setForeground(SystemColor.text);
 		lblOrdenNIngresada_1.setBounds(95, 95, 354, 42);
@@ -52,6 +57,9 @@ public class OrdenCreada1 extends JFrame {
 		JButton btnMenuPrincipal = new JButton("Finalizar");
 		btnMenuPrincipal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				((Cliente) B.getClientsMap().get(order.getClientRut())).getOrders().add(order);
+				((Tecnico) B.getTechsMap().get(order.getTechNumber())).getOrders().add(order);
+				B.getOrdersMap().put(order.getOrderNumber(), order);
 				OrdenCreada1.this.dispose();
 			}
 		});
@@ -64,9 +72,9 @@ public class OrdenCreada1 extends JFrame {
 		lblPara.setBounds(194, 130, 133, 34);
 		contentPane.add(lblPara);
 		
-		JLabel lblNewLabel = new JLabel(""+(String) lista.get(0));
-		lblNewLabel.setBounds(57, 235, 46, 14);
-		contentPane.add(lblNewLabel);
+		//JLabel lblNewLabel = new JLabel(""+((Pieza) lista.get(0)).getDescription());
+		//lblNewLabel.setBounds(57, 235, 46, 14);
+		//contentPane.add(lblNewLabel);
 	}
 
 	public void OrdenCreada11(String nombre, SList lista) {

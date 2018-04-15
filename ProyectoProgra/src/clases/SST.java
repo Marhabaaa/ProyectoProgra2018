@@ -69,6 +69,15 @@ public class SST {	//Sistema Servicio Tecnico
 		return techNumber;
 	}
 
+	public void setOrderNumber(int orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+
+
+	public void setTechNumber(int techNumber) {
+		this.techNumber = techNumber;
+	}
+
 
 	public void showTest(int key) {
 		System.out.println("Name: " + ((Pieza) stockMap.get(key)).getDescription());
@@ -161,6 +170,8 @@ public class SST {	//Sistema Servicio Tecnico
 			Orden aux = new Orden(orderNumber, description, dateIn, dateOut, clientRut, techNumber, price, partsList, complex, checked, done);
 			
 			ordersMap.put(orderNumber, aux);
+			
+			setOrderNumber(orderNumber);
 		}
 		
 		return ordersMap;
@@ -264,9 +275,10 @@ public class SST {	//Sistema Servicio Tecnico
 			
 			Tecnico aux = new Tecnico(rut, name, phoneNumber, eMail, techNumber, dwh, orders, workload);
 			
-			techsMap.put(rut, aux);
+			techsMap.put(techNumber, aux);
+			
+			setTechNumber(techNumber);
 		}
-		
 		return techsMap;
 	}
 	
