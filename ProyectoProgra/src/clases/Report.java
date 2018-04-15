@@ -7,9 +7,9 @@ import java.io.*;
 
 public class Report {
 	
-	Orden o;
-	int suma;
-	Pieza p;
+	private Orden o;
+	private int suma;
+	private Pieza p;
 
 	public void ganaciasTotales(SList ordenes) throws IOException{
 
@@ -30,7 +30,7 @@ public class Report {
 		}
 		}
 		
-	public void ganaciasTotalesPantalla(SList ordenes) {
+	public void ganaciasTotalesPantalla(SList ordenes) throws IOException {
 		System.out.println("    Numero de orden 	    	Tecnico			Ganacia por orden ");
 		for (int i=0;i<ordenes.size();i++) {
 			
