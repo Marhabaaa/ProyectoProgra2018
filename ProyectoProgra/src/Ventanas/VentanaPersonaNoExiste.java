@@ -106,15 +106,10 @@ public class VentanaPersonaNoExiste extends JFrame {
 		}
 		//B.getClientsMap().put(Integer.parseInt(rut), c);
 		
-		
-		
-		
-		
 		btnNewButton = new JButton("Siguiente");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				return;
-				//VentanaPersonaNoExiste.this.dispose();
+				VentanaPersonaNoExiste.this.dispose();
 			}
 		});
 		btnNewButton.setBounds(409, 244, 89, 23);

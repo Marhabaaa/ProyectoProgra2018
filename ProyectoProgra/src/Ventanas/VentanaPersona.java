@@ -100,9 +100,11 @@ public class VentanaPersona extends JFrame {
 				String nombre = ((Component) B.getClientsMap().get(rut1)).getName();
 				//if(piezas==0) {	
 					OrdenCreada1 ventana = new OrdenCreada1(nombre);
+					ventana.setVisible(true);
 					VentanaPersona.this.dispose();
 				//}else{
 					OrdenCreada2 ventana1= new OrdenCreada2(nombre);
+					ventana1.setVisible(true);
 					VentanaPersona.this.dispose();
 				//}
 			}
@@ -124,15 +126,15 @@ public class VentanaPersona extends JFrame {
 		contentPane.add(scrollPane_1);
 		
 		JList piezasAgregadas = new JList();
-		piezasAgregadas.setModel(new AbstractListModel() {
-			String[] piecitas = B.getStockDescriptions();
+		//piezasAgregadas.setModel(new AbstractListModel() {
+			//String[] piecitas = B.getStockDescriptions();
 			/*public int getSize() {
 				return values.length;
 			}
 			public Object getElementAt(int index) {
 				return values[index];
 			}*/
-		});
+		//});
 		
 		scrollPane_1.setViewportView(piezasAgregadas);
 		

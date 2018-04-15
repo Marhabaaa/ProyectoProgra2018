@@ -51,7 +51,7 @@ public class MainWindow extends JFrame {
 		
 		B = new SistemaServicioTecnico();
 		Cliente c = new Cliente(190010059, "Chupalo Entonce", "+56912345678", "chupaloentonce@gmail.com", false);
-		B.getClientsMap().add(190010059, c);
+		B.getClientsMap().put(190010059, c);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
