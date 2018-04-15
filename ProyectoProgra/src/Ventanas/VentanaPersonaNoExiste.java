@@ -104,7 +104,7 @@ public class VentanaPersonaNoExiste extends JFrame {
 		}else {
 			c = new Cliente(Integer.parseInt(rut), nombre.getText(), telefono.getText()	, correo.getText(), false);
 		}
-		//B.getClientsMap().put(Integer.parseInt(rut), c);
+		B.getClientsMap().put(Integer.parseInt(rut), c);
 		
 		btnNewButton = new JButton("Siguiente");
 		btnNewButton.addActionListener(new ActionListener() {

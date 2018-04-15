@@ -130,21 +130,34 @@ public class MainWindow extends JFrame {
 		contentPane.add(problema);
 		problema.setColumns(10);
 		
-		VentanaPersona ventana1 = new VentanaPersona(rut.getText(),problema.getText(), B);
-		VentanaPersonaNoExiste ventana2 = new VentanaPersonaNoExiste(rut.getText(),problema.getText(), B);
+		
+		
 		
 		JButton btnNewButton = new JButton("Siguiente");
 		btnNewButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
+				JLabel label = new JLabel(""+rut.getText());
+				label.setBounds(194, 268, 46, 14);
+				contentPane.add(label);
 				if(B.getClientsMap().contains(Integer.parseInt(rut.getText()))){
+					VentanaPersona ventana1 = new VentanaPersona(rut.getText(),problema.getText(), B);
 					ventana1.setVisible(true);
 				}
 				else {
+					VentanaPersonaNoExiste ventana2 = null;
+					try {
+						ventana2 = new VentanaPersonaNoExiste(rut.getText(),problema.getText(), B);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					ventana2.setVisible(true);
 				}
 			};
 		});
 		btnNewButton.setBounds(356, 190, 123, 49);
 		contentPane.add(btnNewButton);
+		
+		
 	}
 }
