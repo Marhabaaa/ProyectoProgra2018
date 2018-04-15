@@ -2,46 +2,46 @@ package clases;
 
 public class Orden {
     
-	private int orderNumber;	//numero de orden asignado automaticamente
-	private String description; //descripcion del problema del aparato
-    private String dateIn;
-    private String dateOut;
-    private int clientRut;		//rut del cliente al cual pertenece
-    private int techNumber;	//numero del tecnico a quien fue asignada
-    private int price;
-    private SList partsList;	//lista de piezas a cambiar
-    private int complex;		//suma de las complejidades de las piezas
+	private int 	orderNumber;	//numero de orden asignado automaticamente
+	private String 	description; //descripcion del problema del aparato
+    private String 	dateIn;
+    private String 	dateOut;
+    private int 	clientRut;		//rut del cliente al cual pertenece
+    private int 	techNumber;	//numero del tecnico a quien fue asignada
+    private int 	price;
+    private SList 	partsList;	//lista de piezas a cambiar
+    private int 	complex;		//suma de las complejidades de las piezas
     private boolean checked;	//revision hecha
     private boolean done;		//orden lista
 
     
     public Orden(int orderNumber, String description, String dateIn, String dateOut, int clientRut, int techNumber,
 			int price, SList partsList, int complex, boolean checked, boolean done) {
-		this.orderNumber = orderNumber;
-		this.description = description;
-		this.dateIn = dateIn;
-		this.dateOut = dateOut;
-		this.clientRut = clientRut;
-		this.techNumber = techNumber;
-		this.price = price;
-		this.partsList = partsList;
-		this.complex = complex;
-		this.checked = checked;
-		this.done = done;
+		this.orderNumber 	= orderNumber;
+		this.description 	= description;
+		this.dateIn 		= dateIn;
+		this.dateOut 		= dateOut;
+		this.clientRut 		= clientRut;
+		this.techNumber 	= techNumber;
+		this.price 			= price;
+		this.partsList 		= partsList;
+		this.complex 		= complex;
+		this.checked 		= checked;
+		this.done 			= done;
 	}
 
 	public Orden(int orderNumber, String description, String dateIn, int clientRut, int techNumber) {
-    	this.orderNumber = orderNumber;
-    	this.description = description;
-    	this.dateIn = dateIn;
-    	this.dateOut = null;
+    	this.orderNumber 	= orderNumber;
+    	this.description 	= description;
+    	this.dateIn 		= dateIn;
+    	this.dateOut 		= null;
         this.setClientRut(clientRut);
         this.setTechNumber(techNumber);
-        this.price = 0;
-        this.partsList = new SList();
-        this.complex = 0;
-        this.checked = false;
-        this.done = false;
+        this.price 			= 0;
+        this.partsList 		= new SList();
+        this.complex 		= 0;
+        this.checked 		= false;
+        this.done 			= false;
     }
     
     public void set() {

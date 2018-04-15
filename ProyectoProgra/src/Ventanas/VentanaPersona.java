@@ -1,6 +1,7 @@
 package Ventanas;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -28,7 +29,7 @@ public class VentanaPersona extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaPersona(String rut, String problema, SistemaServicioTecnico B) {
-
+				
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 554, 354);
 		contentPane = new JPanel();
@@ -43,7 +44,6 @@ public class VentanaPersona extends JFrame {
 		contentPane.add(lblAgregarPiezas);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		
 		scrollPane.setBounds(156, 79, 129, 153);
 		contentPane.add(scrollPane);
 		
@@ -59,9 +59,21 @@ public class VentanaPersona extends JFrame {
 		});
 		scrollPane.setViewportView(listaPiezas);
 		
+		//JList piezasAgregadas = new JList();					//HACER ESTO, este es el jlist de piezas agregadas
+		//piezasAgregadas.setModel(new AbstractListModel() {
+			//String[] values = 
+			//public int getSize() {
+				//return values.length;
+			//}
+			//public Object getElementAt(int index) {
+				//return values[index];
+			//}
+		//});
+		//scrollPane_1.setViewportView(piezasAgregadas);
+		
 		
 		JButton agregarPieza = new JButton("Agregar");
-		SList piezasAgregadas;
+		//SList piezasAgregadas;
 		agregarPieza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -69,16 +81,21 @@ public class VentanaPersona extends JFrame {
 		});
 		agregarPieza.setBounds(295, 79, 89, 23);
 		contentPane.add(agregarPieza);
+//HOLA
 		
+		int rut1=Integer.parseInt(rut);
 		JButton button = new JButton("Siguiente");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//if(piezas==0) {
-					//String nombre = ((Cliente) S.getClientsMap().get(rut)).getName();
-					//OrdenCreada1 ventana = new OrdenCreada1(nombre);
-					OrdenCreada1 ventana = new OrdenCreada1();
-					setVisible(false);
+				String nombre = ((Component) B.getClientsMap().get(rut1)).getName();
+				//if(piezas==0) {	
+					OrdenCreada1 ventana = new OrdenCreada1(nombre);
 					ventana.setVisible(true);
+					VentanaPersona.this.dispose();
+				//}else{
+					OrdenCreada2 ventana1= new OrdenCreada2(nombre);
+					ventana1.setVisible(true);
+					VentanaPersona.this.dispose();
 				//}
 			}
 		});
@@ -88,8 +105,7 @@ public class VentanaPersona extends JFrame {
 		JButton button_1 = new JButton("Atr\u00E1s");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				setVisible(false);
-				ventana.setVisible(true);
+				VentanaPersona.this.dispose();
 			}
 		});
 		button_1.setBounds(290, 257, 89, 23);
@@ -99,19 +115,19 @@ public class VentanaPersona extends JFrame {
 		scrollPane_1.setBounds(295, 113, 129, 119);
 		contentPane.add(scrollPane_1);
 		
-		/*JList piezasAgregadas = new JList();
-		piezasAgregadas.setModel(new AbstractListModel() {
-			String[] piecitas = B.getStockDescriptions();
-			public int getSize() {
+		JList piezasAgregadas = new JList();
+		//piezasAgregadas.setModel(new AbstractListModel() {
+			//String[] piecitas = B.getStockDescriptions();
+			/*public int getSize() {
 				return values.length;
 			}
 			public Object getElementAt(int index) {
 				return values[index];
-			}
-		});
+			}*/
+		//});
 		
 		scrollPane_1.setViewportView(piezasAgregadas);
-		*/
+		
 		
 		/*JList list_1 = new JList();
 		list_1.setModel(new AbstractListModel() {

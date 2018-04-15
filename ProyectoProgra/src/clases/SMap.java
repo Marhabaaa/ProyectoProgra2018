@@ -34,6 +34,19 @@ public class SMap {
 		return list;
 	}
 	
+	public Object[] toArray() {
+		Enumeration<Object> e = map.elements();
+		Object[] aux = new Object[map.size()];
+		int i = 0;
+		
+		while(e.hasMoreElements()) {
+			aux[i] = e.nextElement();
+			i++;
+		}
+	
+		return aux;
+	}
+	
 	public int size() {
 		return map.size();
 	}
