@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import clases.Cliente;
-import clases.SistemaServicioTecnico;
+import clases.SST;
 
 import java.awt.SystemColor;
 import javax.swing.JTextField;
@@ -41,7 +41,7 @@ public class VentanaPersonaNoExiste extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaPersonaNoExiste(String rut, String problema,SistemaServicioTecnico B) throws SQLException {
+	public VentanaPersonaNoExiste(String rut, String problema,SST B) throws SQLException {
 		String rut1=rut;
 		Cliente client;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

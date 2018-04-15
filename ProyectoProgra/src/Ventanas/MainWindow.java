@@ -11,7 +11,7 @@ import javax.swing.border.EmptyBorder;
 
 import clases.Cliente;
 import clases.SList;
-import clases.SistemaServicioTecnico;
+import clases.SST;
 
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -43,14 +43,14 @@ public class MainWindow extends JFrame {
 	private JPanel contentPane;
 	private JTextField rut;
 	private JTextField problema;
-	private static SistemaServicioTecnico B;
+	private static SST B;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) throws SQLException {
 		
-		B = new SistemaServicioTecnico();
+		B = new SST();
 		Cliente c = new Cliente(190010059, "Chupalo Entonce", "+56912345678", "chupaloentonce@gmail.com", false);
 		B.getClientsMap().put(190010059, c);
 		EventQueue.invokeLater(new Runnable() {

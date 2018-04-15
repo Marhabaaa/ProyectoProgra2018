@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import clases.SList;
-import clases.SistemaServicioTecnico;
+import clases.SST;
 
 import java.awt.SystemColor;
 import javax.swing.JTextField;
@@ -29,7 +29,7 @@ public class VentanaPersona extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaPersona(String rut, String problema, SistemaServicioTecnico B, SList lista) {
+	public VentanaPersona(String rut, String problema, SST B, SList lista) {
 				
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 554, 354);
@@ -60,9 +60,9 @@ public class VentanaPersona extends JFrame {
 		});
 		scrollPane.setViewportView(listaPiezas);
 		
-		String selected = (String) listaPiezas.getSelectedValue();
-		int i=Integer.parseInt(selected);
-		lista.add(B.getStockMap().get(i));
+		//String selected = (String) listaPiezas.getSelectedValue();
+		//int i=Integer.parseInt(selected);
+		//lista.add(B.getStockMap().get(i));
 		
 		//JList piezasAgregadas = new JList();					//HACER ESTO, este es el jlist de piezas agregadas
 		//piezasAgregadas.setModel(new AbstractListModel() {
@@ -87,7 +87,7 @@ public class VentanaPersona extends JFrame {
 				VentanaPersona.this.dispose();
 			}
 		});
-		agregarPieza.setBounds(290, 209, 89, 23);
+		agregarPieza.setBounds(290, 209, 107, 23);
 		contentPane.add(agregarPieza);
 ///////////////////////////////////////////////////////////////
 		
