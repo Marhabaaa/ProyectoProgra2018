@@ -3,8 +3,8 @@ package clases;
 public class Cliente extends Persona {
     
     private boolean isBusiness;
-    private int maxOrders;	//maximo numero de ordenes permitidas por cliente segun tipo de cliente
-    private SList orders;
+    private int 	maxOrders;	//maximo numero de ordenes permitidas por cliente segun tipo de cliente
+    private SList 	orders;
 
     
 	public Cliente(int rut, String name, String phoneNumber, String eMail, boolean isBusiness, SList orders) {

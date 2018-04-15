@@ -17,31 +17,31 @@ public class Orden {
     
     public Orden(int orderNumber, String description, String dateIn, String dateOut, int clientRut, int techNumber,
 			int price, SList partsList, int complex, boolean checked, boolean done) {
-		this.orderNumber 	= orderNumber;
-		this.description 	= description;
-		this.dateIn 		= dateIn;
-		this.dateOut 		= dateOut;
-		this.clientRut 		= clientRut;
-		this.techNumber 	= techNumber;
-		this.price 			= price;
-		this.partsList 		= partsList;
-		this.complex 		= complex;
-		this.checked 		= checked;
-		this.done 			= done;
+		this.orderNumber = orderNumber;
+		this.description = description;
+		this.dateIn 	 = dateIn;
+		this.dateOut 	 = dateOut;
+		this.clientRut 	 = clientRut;
+		this.techNumber  = techNumber;
+		this.price 		 = price;
+		this.partsList 	 = partsList;
+		this.complex 	 = complex;
+		this.checked 	 = checked;
+		this.done 		 = done;
 	}
 
 	public Orden(int orderNumber, String description, String dateIn, int clientRut, int techNumber) {
-    	this.orderNumber 	= orderNumber;
-    	this.description 	= description;
-    	this.dateIn 		= dateIn;
-    	this.dateOut 		= null;
+    	this.orderNumber = orderNumber;
+    	this.description = description;
+    	this.dateIn 	 = dateIn;
+    	this.dateOut 	 = null;
         this.setClientRut(clientRut);
         this.setTechNumber(techNumber);
-        this.price 			= 0;
-        this.partsList 		= new SList();
-        this.complex 		= 0;
-        this.checked 		= false;
-        this.done 			= false;
+        this.price 		 = 0;
+        this.partsList 	 = new SList();
+        this.complex 	 = 0;
+        this.checked 	 = false;
+        this.done 		 = false;
     }
     
     public void set() {

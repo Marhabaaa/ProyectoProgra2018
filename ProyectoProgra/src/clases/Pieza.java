@@ -2,18 +2,18 @@ package clases;
 
 public class Pieza {
 	
-	private int code;
-    private String description;
-    private int cant;
-    private int price;
-    private int complex; //complejidad de trabajo con la pieza traducida en horas de trabajo
+	private int 	code;
+    private String  description;
+    private int 	cant;
+    private int 	price;
+    private int 	complex; //complejidad de trabajo con la pieza traducida en horas de trabajo
     
     public Pieza(int code, String name, int stock, int price, int complex) {
-    	this.code = code;
+    	this.code 		 = code;
     	this.description = name;
-        this.cant = stock;
-        this.price = price;
-        this.complex = complex;
+        this.cant 		 = stock;
+        this.price 		 = price;
+        this.complex 	 = complex;
     }
 
 	public int getCode() {

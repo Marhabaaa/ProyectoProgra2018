@@ -30,32 +30,52 @@ public class SistemaServicioTecnico {
 		clientsMap 		= getClientsMapFromDB(connect);
 		techsMap 		= getTechsMapFromDB(connect);
 	}
-
-	/*public SistemaServicioTecnico(StockMap stockMap, OrdersMap ordersMap, ClientsMap clientsMap, TechList techList,
-			int orderNumber) {
-		this.stockMap = stockMap;
-		this.ordersMap = ordersMap;
-		this.clientsMap = clientsMap;
-		this.techList = techList;
-		this.orderNumber = orderNumber;
-	}*/
 	
+
+	public Connection getConnect() {
+		return connect;
+	}
+
+
+	public SMap getStockMap() {
+		return stockMap;
+	}
+
+
+	public SMap getOrderPartsMap() {
+		return orderPartsMap;
+	}
+
+
+	public SMap getOrdersMap() {
+		return ordersMap;
+	}
+
+
 	public SMap getClientsMap() {
 		return clientsMap;
 	}
 
-	public void setClientsMap(SMap clientsMap) {
-		this.clientsMap = clientsMap;
+
+	public SMap getTechsMap() {
+		return techsMap;
 	}
-	
+
+
+	public int getOrderNumber() {
+		return orderNumber;
+	}
+
+
+	public int getTechNumber() {
+		return techNumber;
+	}
+
+
 	public void showTest(int key) {
 		System.out.println("Name: " + ((Pieza) stockMap.get(key)).getDescription());
 	}
-	
-	public SMap getStockMap() {
-		return stockMap;
-	}
-	
+
 	public SMap getStockMapFromDB(Connection connect) throws SQLException {
 		PreparedStatement statement = (PreparedStatement) connect.prepareStatement("SELECT * FROM inventario");
 		ResultSet data = statement.executeQuery();
@@ -137,6 +157,9 @@ public class SistemaServicioTecnico {
 				done = true;
 			
 			SList partsList = (SList) orderPartsMap.get(orderNumber);
+			if(partsList == null)
+				partsList = new SList();
+			
 			Orden aux = new Orden(orderNumber, description, dateIn, dateOut, clientRut, techNumber, price, partsList, complex, checked, done);
 			
 			ordersMap.put(orderNumber, aux);
@@ -314,5 +337,4 @@ public class SistemaServicioTecnico {
 		Tecnico aux = (Tecnico) techsMap.get(order.getTechNumber());
 		return aux.estimateDateOut(order.getComplex());
 	}
-	
 }

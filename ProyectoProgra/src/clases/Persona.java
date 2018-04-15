@@ -2,23 +2,16 @@ package clases;
 
 public class Persona {
 	
-	protected int rut;
+	protected int 	 rut;
     protected String name;
     protected String phoneNumber;
     protected String eMail;
     
-    public Persona() {
-    	rut = 0;
-		name = "";
-		phoneNumber = "";
-		eMail = "";
-	}
-    
     public Persona(int rut, String name, String phoneNumber, String eMail) {
-    	this.rut = rut;
-    	this.name = name;
+    	this.rut 		 = rut;
+    	this.name 		 = name;
 		this.phoneNumber = phoneNumber;
-		this.eMail = eMail;
+		this.eMail 		 = eMail;
 	}
 
 	public int getRut() {

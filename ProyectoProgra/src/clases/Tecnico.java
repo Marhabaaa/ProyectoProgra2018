@@ -2,26 +2,26 @@ package clases;
 
 public class Tecnico extends Persona {
 	
-    private int techNumber;
-    private int dwh;	//daily working hours; horas de trabajo diario de tecnico segun contrato
-    private SList orders;
-    private int workload;	//cantidad de trabajo asignada al momento
+    private int 	techNumber;
+    private int 	dwh;	//daily working hours; horas de trabajo diario de tecnico segun contrato
+    private SList 	orders;
+    private int 	workload;	//cantidad de trabajo asignada al momento
 
     
     public Tecnico(int rut, String name, String phoneNumber, String eMail, int tecNumber, int dwh, SList orders, int workload) {
 		super(rut, name, phoneNumber, eMail);
 		this.techNumber = tecNumber;
-		this.dwh = dwh;
-		this.orders = orders;
-		this.workload = workload;
+		this.dwh 		= dwh;
+		this.orders 	= orders;
+		this.workload 	= workload;
 	}
 
 	public Tecnico(int rut, String name, String phoneNumber, String eMail, int tecNumber, int dwh) {
 		super(rut, name, phoneNumber, eMail);
 		this.techNumber = tecNumber;
-		this.dwh = dwh;
-		this.orders = new SList();
-		this.workload = 0;
+		this.dwh 		= dwh;
+		this.orders 	= new SList();
+		this.workload 	= 0;
 	}
     
 	public int getTechNumber() {
