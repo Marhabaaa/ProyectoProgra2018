@@ -1,0 +1,14 @@
+ Material del inventario 
+Codigo           Nombre                       Cantidad 
+
+    		       3		touchpad		1
+
+    		       6		speaker		4
+
+    		       4		control key		3
+
+    		       2		power button		2
+
+    		       6		speaker		4
+
+la gananacia total es: 0

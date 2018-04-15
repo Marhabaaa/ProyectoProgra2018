@@ -11,7 +11,7 @@ import javax.swing.border.EmptyBorder;
 
 import clases.Cliente;
 import clases.SList;
-import clases.SistemaServicioTecnico;
+import clases.SST;
 
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -43,14 +43,14 @@ public class MainWindow extends JFrame {
 	private JPanel contentPane;
 	private JTextField rut;
 	private JTextField problema;
-	private static SistemaServicioTecnico B;
+	private static SST B;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) throws SQLException {
 		
-		B = new SistemaServicioTecnico();
+		B = new SST();
 		Cliente c = new Cliente(190010059, "Chupalo Entonce", "+56912345678", "chupaloentonce@gmail.com", false);
 		B.getClientsMap().put(190010059, c);
 		EventQueue.invokeLater(new Runnable() {
@@ -138,7 +138,7 @@ public class MainWindow extends JFrame {
 		btnNewButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				JLabel label = new JLabel(""+rut.getText());
-				SList lista=null;
+				SList lista = new SList();
 				label.setBounds(194, 268, 46, 14);
 				contentPane.add(label);
 				if(B.getClientsMap().contains(Integer.parseInt(rut.getText()))){
@@ -159,6 +159,16 @@ public class MainWindow extends JFrame {
 		});
 		btnNewButton.setBounds(356, 190, 123, 49);
 		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Reportes");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Reportes ventanaReportes= new Reportes (B.getOrdersMap().toSList(),B);
+				ventanaReportes.setVisible(true);
+			}
+		});
+		btnNewButton_1.setBounds(175, 0, 129, 23);
+		contentPane.add(btnNewButton_1);
 		
 		
 	}

@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import clases.Cliente;
-import clases.SistemaServicioTecnico;
+import clases.SST;
 
 import java.awt.SystemColor;
 import javax.swing.JTextField;
@@ -41,7 +41,7 @@ public class VentanaPersonaNoExiste extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaPersonaNoExiste(String rut, String problema,SistemaServicioTecnico B) throws SQLException {
+	public VentanaPersonaNoExiste(String rut, String problema,SST B) throws SQLException {
 		String rut1=rut;
 		Cliente client;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -98,17 +98,17 @@ public class VentanaPersonaNoExiste extends JFrame {
 		lblTipoDeCliente.setForeground(SystemColor.info);
 		lblTipoDeCliente.setBounds(65, 248, 104, 14);
 		contentPane.add(lblTipoDeCliente);
-		Cliente c;
-		if(tipoCliente.getText()=="empresa"){
-			c = new Cliente(Integer.parseInt(rut), nombre.getText(), telefono.getText(), correo.getText(), true);
-		}else {
-			c = new Cliente(Integer.parseInt(rut), nombre.getText(), telefono.getText()	, correo.getText(), false);
-		}
-		B.getClientsMap().put(Integer.parseInt(rut), c);
 		
 		btnNewButton = new JButton("Siguiente");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				Cliente c;
+				if(tipoCliente.getText()=="empresa"){
+					c = new Cliente(Integer.parseInt(rut), nombre.getText(), telefono.getText(), correo.getText(), true);
+				}else {
+					c = new Cliente(Integer.parseInt(rut), nombre.getText(), telefono.getText()	, correo.getText(), false);
+				}
+				B.getClientsMap().put(Integer.parseInt(rut), c);
 				VentanaPersonaNoExiste.this.dispose();
 			}
 		});

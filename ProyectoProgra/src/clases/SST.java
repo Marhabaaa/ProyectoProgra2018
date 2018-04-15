@@ -4,31 +4,29 @@ import java.sql.*;
 
 import BDconnector.MySQLconnection;
 
-public class SistemaServicioTecnico {
+public class SST {	//Sistema Servicio Tecnico
 
 	private static MySQLconnection conn;
 	private Connection connect;
 	private SMap stockMap;
 	private SMap orderPartsMap;
 	private SMap ordersMap;
-	private SMap clientOrdersMap;
-	private SMap techOrdersMap;
 	private SMap clientsMap;
 	private SMap techsMap;
 	private int  orderNumber;	//variable para asignacion de numero de orden
 	private int  techNumber;	//variable para asignacion de numero de tecnico
 	
-	public SistemaServicioTecnico() throws SQLException {
+	public SST() throws SQLException {
 		conn  = new MySQLconnection();
 		connect = conn.getConnection();
 		
-		stockMap 		= getStockMapFromDB(connect);
-		orderPartsMap 	= getOrderPartsMapFromDB(connect);
-		ordersMap 		= getOrdersMapFromDB(connect);
-		clientOrdersMap = getClientOrdersMap();
-		techOrdersMap 	= getTechOrdersMap();
-		clientsMap 		= getClientsMapFromDB(connect);
-		techsMap 		= getTechsMapFromDB(connect);
+		stockMap 			 = getStockMapFromDB(connect);
+		orderPartsMap 		 = getOrderPartsMapFromDB(connect);
+		ordersMap 			 = getOrdersMapFromDB(connect);
+		SMap clientOrdersMap = getClientOrdersMap();
+		SMap techOrdersMap 	 = getTechOrdersMap();
+		clientsMap 			 = getClientsMapFromDB(connect, clientOrdersMap);
+		techsMap 			 = getTechsMapFromDB(connect, techOrdersMap);
 	}
 	
 
@@ -69,6 +67,15 @@ public class SistemaServicioTecnico {
 
 	public int getTechNumber() {
 		return techNumber;
+	}
+
+	public void setOrderNumber(int orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+
+
+	public void setTechNumber(int techNumber) {
+		this.techNumber = techNumber;
 	}
 
 
@@ -163,6 +170,8 @@ public class SistemaServicioTecnico {
 			Orden aux = new Orden(orderNumber, description, dateIn, dateOut, clientRut, techNumber, price, partsList, complex, checked, done);
 			
 			ordersMap.put(orderNumber, aux);
+			
+			setOrderNumber(orderNumber);
 		}
 		
 		return ordersMap;
@@ -210,7 +219,7 @@ public class SistemaServicioTecnico {
 		return techOrdersMap;
 	}
 	
-	public SMap getClientsMapFromDB(Connection connect) throws SQLException {
+	public SMap getClientsMapFromDB(Connection connect, SMap clientOrdersMap) throws SQLException {
 		PreparedStatement statement = (PreparedStatement) connect.prepareStatement("SELECT * FROM clientes");
 		ResultSet data = statement.executeQuery();
 		
@@ -242,7 +251,7 @@ public class SistemaServicioTecnico {
 		return clientsMap;
 	}
 	
-	public SMap getTechsMapFromDB(Connection connect) throws SQLException {
+	public SMap getTechsMapFromDB(Connection connect, SMap techOrdersMap) throws SQLException {
 		PreparedStatement statement = (PreparedStatement) connect.prepareStatement("SELECT * FROM tecnicos");
 		ResultSet data = statement.executeQuery();
 		
@@ -266,9 +275,10 @@ public class SistemaServicioTecnico {
 			
 			Tecnico aux = new Tecnico(rut, name, phoneNumber, eMail, techNumber, dwh, orders, workload);
 			
-			techsMap.put(rut, aux);
+			techsMap.put(techNumber, aux);
+			
+			setTechNumber(techNumber);
 		}
-		
 		return techsMap;
 	}
 	
