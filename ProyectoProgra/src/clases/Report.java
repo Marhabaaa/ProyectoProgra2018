@@ -22,7 +22,7 @@ public class Report {
 				o = (Orden)ordenes.get(i);
 				if(o.isDone()) {
 				   bw.newLine();
-				   bw.write(""+i+" " + o.getOrderNumber()+"		" + o.getTechNumber()+ "		" + o.getPrice());
+				   bw.write(" " + o.getOrderNumber()+"		" + o.getTechNumber()+ "		" + o.getPrice());
 				   suma = suma + o.getProfit();
 				}
 			}
