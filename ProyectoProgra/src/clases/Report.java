@@ -30,18 +30,20 @@ public class Report {
 		}
 		}
 		
-	
-/*	public void ganaciasTotalesPantalla(Slist ordenes) {
+	public void ganaciasTotalesPantalla(SList ordenes) {
+		System.out.println("    Numero de orden 	    	Tecnico			Ganacia por orden ");
 		for (int i=0;i<ordenes.size();i++) {
+			
 			o = (Orden)ordenes.get(i);
 			if(o.isDone()) {
-			  
+			System.out.println(""+i+" " + o.getOrderNumber()+"		" + o.getTechNumber()+ "		" + o.getPrice()+"\n");
 			   suma = suma + o.getProfit();
 			}
+			System.out.println("el precio total es: "+ suma);
 		}
 	}
 		
-	}*/
+	
 	public void stock(SList stock) throws IOException {
 		File f= new File ("ReporteStock.txt");
 		if(f.exists()) {
@@ -57,6 +59,17 @@ public class Report {
 			bw.write("el precio total es: "+ suma);
 			bw.close();	
 		}
+		
+	}
+	public void stockPantalla(SList stock) throws IOException {
+		
+			
+			System.out.println("Codigo           Nombre                       Cantidad ");
+			for (int i=0;i<stock.size();i++) {
+				p = (Pieza)stock.get(i);
+				System.out.println(" " +p.getCode()+ "		"+p.getDescription()+"		"+p.getCant() );	
+			}
+
 		
 	}
 }
