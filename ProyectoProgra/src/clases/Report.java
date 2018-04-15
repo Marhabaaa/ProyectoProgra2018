@@ -22,7 +22,7 @@ public class Report {
 				o = (Orden)ordenes.get(i);
 				if(o.isDone()) {
 				   bw.newLine();
-				   bw.write(" " + o.getOrderNumber()+"		" + o.getTechNumber()+ "		" + o.getPrice());
+				   bw.write(" " + o.getOrderNumber()+"				" + o.getTechNumber()+ "				" + o.getProfit());
 				   suma = suma + o.getProfit();
 				}
 			}
@@ -38,7 +38,7 @@ public class Report {
 			
 			o = (Orden)ordenes.get(i);
 			if(o.isDone()) {
-			System.out.println(""+i+" " + o.getOrderNumber()+"		" + o.getTechNumber()+ "		" + o.getPrice()+"\n");
+			System.out.println(" " + o.getOrderNumber()+"		" + o.getTechNumber()+ "		" + o.getProfit()+"\n");
 			   suma = suma + o.getProfit();
 			}
 			System.out.println("el precio total es: "+ suma);
