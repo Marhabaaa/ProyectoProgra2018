@@ -49,14 +49,16 @@ public class EliminadorDeOrdenes extends JFrame {
 		contentPane.add(eliminarOrden);
 		eliminarOrden.setColumns(10);
 		
+		String code = eliminarOrden.getText();
 		JButton botonEliminarOrden = new JButton("Eliminar"); //se elimina la orden
-		int codigo=Integer.parseInt(eliminarOrden.getText());
-		Orden aux=(Orden)B.getOrdersMap().get(codigo);
-		botonEliminarOrden.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				B.getOrdersMap().remove(aux);
-			}
-		});
+		if(!code.equals("")) {
+			int codigo=Integer.parseInt(eliminarOrden.getText());
+				botonEliminarOrden.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						B.getOrdersMap().remove(codigo);
+					}
+				});
+		}
 		botonEliminarOrden.setBounds(272, 112, 89, 23);
 		contentPane.add(botonEliminarOrden);
 	}

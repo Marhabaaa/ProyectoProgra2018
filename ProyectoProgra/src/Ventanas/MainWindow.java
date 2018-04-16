@@ -172,6 +172,7 @@ public class MainWindow extends JFrame {
 		btnEliminarOrdenes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EliminadorDeOrdenes ventana=new EliminadorDeOrdenes(B);
+				ventana.setVisible(true);
 			}
 		});
 		btnEliminarOrdenes.setBounds(0, 0, 165, 23);
