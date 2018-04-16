@@ -24,6 +24,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 
 public class VentanaPersonaNoExiste extends JFrame {
@@ -36,6 +37,7 @@ public class VentanaPersonaNoExiste extends JFrame {
 	private JButton btnNewButton;
 	private JButton btnAtrs;
 	private JTextField tipoCliente;
+	private JLabel lblCrearNuevoCliente;
 
 
 	/**
@@ -123,6 +125,12 @@ public class VentanaPersonaNoExiste extends JFrame {
 		});
 		btnAtrs.setBounds(305, 244, 89, 23);
 		contentPane.add(btnAtrs);
+		
+		lblCrearNuevoCliente = new JLabel("Crear nuevo cliente:");
+		lblCrearNuevoCliente.setForeground(SystemColor.text);
+		lblCrearNuevoCliente.setFont(new Font("Segoe UI Black", Font.PLAIN, 15));
+		lblCrearNuevoCliente.setBounds(42, 27, 167, 14);
+		contentPane.add(lblCrearNuevoCliente);
 		
 	
 	}

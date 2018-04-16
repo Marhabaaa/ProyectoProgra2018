@@ -1,14 +1,24 @@
- Material del inventario 
+ Matarial del inventario 
 Codigo           Nombre                       Cantidad 
 
-    		       3		touchpad		1
+ 10		space bar		20
 
-    		       6		speaker		4
+ 9		hard disk		17
 
-    		       4		control key		3
+ 8		cd burner		33
 
-    		       2		power button		2
+ 7		battery		67
 
-    		       6		speaker		4
+ 6		speaker		4
 
-la gananacia total es: 0
+ 5		screen		2
+
+ 4		control key		3
+
+ 3		touchpad		1
+
+ 2		power button		2
+
+ 1		webcam		23
+
+el precio total es: 0

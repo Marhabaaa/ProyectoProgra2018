@@ -22,6 +22,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractListModel;
 
@@ -103,7 +105,10 @@ public class VentanaPersona extends JFrame {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Orden auxO;
-				auxO = new Orden(B.getNewOrderNumber(), problema, "15/04/2018", rut1, auxT.getTechNumber());
+				Date hoy= new Date(); 
+				SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy"); 
+				String fecha = sdf.format(hoy);
+				auxO = new Orden(B.getNewOrderNumber(), problema, fecha, rut1, auxT.getTechNumber());
 				Cliente auxC = (Cliente) B.getClientsMap().get(rut1);
 				String nombre = auxC.getName();
 				if(lista.isEmpty()) {
@@ -111,6 +116,7 @@ public class VentanaPersona extends JFrame {
 					ventana.setVisible(true);
 					VentanaPersona.this.dispose();
 				}else{
+					
 					auxO.setPartsList(lista);
 					auxO.setDateOut(String.valueOf(B.delayOfReturn(auxO)));
 					auxO.set();
