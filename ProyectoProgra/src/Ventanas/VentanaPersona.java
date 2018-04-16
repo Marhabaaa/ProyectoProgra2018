@@ -87,12 +87,15 @@ public class VentanaPersona extends JFrame {
 		//SList piezasAgregadas;
 		agregarPieza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Pieza aux = (Pieza) B.getStockMap().get(Integer.parseInt(piezaAñadida.getText()));
-				if(aux != null)
-					lista.add(aux);
-				VentanaPersona ventana1= new VentanaPersona(rut,problema,B,lista);
-				ventana1.setVisible(true);
-				VentanaPersona.this.dispose();
+				String text = piezaAñadida.getText();
+				if(!text.equals("")) {
+					Pieza aux = (Pieza) B.getStockMap().get(Integer.parseInt(text));
+					if(aux != null)
+						lista.add(aux);
+					VentanaPersona ventana1= new VentanaPersona(rut,problema,B,lista);
+					ventana1.setVisible(true);
+					VentanaPersona.this.dispose();
+				}
 			}
 		});
 		agregarPieza.setBounds(290, 209, 107, 23);

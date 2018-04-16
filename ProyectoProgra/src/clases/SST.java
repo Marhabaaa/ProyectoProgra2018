@@ -83,7 +83,7 @@ public class SST {	//Sistema Servicio Tecnico
 		System.out.println("Name: " + ((Pieza) stockMap.get(key)).getDescription());
 	}
 
-	public SMap getStockMapFromDB(Connection connect) throws SQLException {
+	private SMap getStockMapFromDB(Connection connect) throws SQLException {
 		PreparedStatement statement = (PreparedStatement) connect.prepareStatement("SELECT * FROM inventario");
 		ResultSet data = statement.executeQuery();
 		
@@ -107,7 +107,7 @@ public class SST {	//Sistema Servicio Tecnico
 		return stockMap;
 	}
 	
-	public SMap getOrderPartsMapFromDB(Connection connect) throws SQLException {
+	private SMap getOrderPartsMapFromDB(Connection connect) throws SQLException {
 		PreparedStatement statement = (PreparedStatement) connect.prepareStatement("SELECT * FROM orderParts");
 		ResultSet data = statement.executeQuery();
 		
@@ -136,7 +136,7 @@ public class SST {	//Sistema Servicio Tecnico
 		return orderPartsMap;
 	}
 	
-	public SMap getOrdersMapFromDB(Connection connect) throws SQLException {
+	private SMap getOrdersMapFromDB(Connection connect) throws SQLException {
 		PreparedStatement statement = (PreparedStatement) connect.prepareStatement("SELECT * FROM ordenes");
 		ResultSet data = statement.executeQuery();
 		
@@ -177,7 +177,7 @@ public class SST {	//Sistema Servicio Tecnico
 		return ordersMap;
 	}
 	
-	public SMap getClientOrdersMap() {
+	private SMap getClientOrdersMap() {
 		int i = 0;
 		SList ordersList = ordersMap.toSList();
 		Orden aux;
@@ -198,7 +198,7 @@ public class SST {	//Sistema Servicio Tecnico
 		return clientOrdersMap;
 	}
 	
-	public SMap getTechOrdersMap() {
+	private SMap getTechOrdersMap() {
 		int i = 0;
 		SList ordersList = ordersMap.toSList();
 		Orden aux;
@@ -219,7 +219,7 @@ public class SST {	//Sistema Servicio Tecnico
 		return techOrdersMap;
 	}
 	
-	public SMap getClientsMapFromDB(Connection connect, SMap clientOrdersMap) throws SQLException {
+	private SMap getClientsMapFromDB(Connection connect, SMap clientOrdersMap) throws SQLException {
 		PreparedStatement statement = (PreparedStatement) connect.prepareStatement("SELECT * FROM clientes");
 		ResultSet data = statement.executeQuery();
 		
@@ -251,7 +251,7 @@ public class SST {	//Sistema Servicio Tecnico
 		return clientsMap;
 	}
 	
-	public SMap getTechsMapFromDB(Connection connect, SMap techOrdersMap) throws SQLException {
+	private SMap getTechsMapFromDB(Connection connect, SMap techOrdersMap) throws SQLException {
 		PreparedStatement statement = (PreparedStatement) connect.prepareStatement("SELECT * FROM tecnicos");
 		ResultSet data = statement.executeQuery();
 		
