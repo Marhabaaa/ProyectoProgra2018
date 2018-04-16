@@ -12,6 +12,7 @@ import clases.Pieza;
 import clases.SList;
 import clases.SMap;
 import clases.SST;
+import clases.Report;
 
 import java.awt.SystemColor;
 import javax.swing.JButton;
@@ -21,7 +22,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
-import clases.SST;
+
 public class Reportes extends JFrame {
 
 	private JPanel contentPane;
@@ -62,61 +63,12 @@ public class Reportes extends JFrame {
 		JButton btnNewButton_2 = new JButton("Generar reporte");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				File f= new File ("Reporte.txt");
-				BufferedWriter bw = null;
+				Report r = new Report();
 				try {
-					bw = new BufferedWriter(new FileWriter("Reporte.txt"));
+					r.ganaciasTotales(ordenes);
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
+					System.out.println("Error al generar reporte!");
 					e1.printStackTrace();
-				}
-				Orden o;
-				int suma=0;
-				if(f.exists()) {
-
-					try {
-						bw.write(" Numero de orden 	    	Tecnico			Ganacia por orden ");
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					for (int i=0;i<ordenes.size();i++) {
-						o = (Orden)ordenes.get(i);
-						if(o.isDone()) {
-						   try {
-							bw.newLine();
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-						   try {
-							bw.write(" " + o.getOrderNumber()+"				" + o.getTechNumber()+ "				" + o.getProfit());
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-						   suma = suma + o.getProfit();
-						}
-					}
-					try {
-						bw.newLine();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					try {
-						bw.write("la ganancia total es: "+ suma);
-					} catch (IOException e2) {
-						// TODO Auto-generated catch block
-						e2.printStackTrace();
-					}
-					try {
-						bw.close();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}	
 				}
 			}
 		}
@@ -128,67 +80,12 @@ public class Reportes extends JFrame {
 		JButton GenerarReporte2 = new JButton("Generar Reporte");
 		GenerarReporte2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				File f= new File ("ReporteStock.txt");
-				Orden o;
-				int suma=0;
-				BufferedWriter bw = null;
+				Report r = new Report();
 				try {
-					bw = new BufferedWriter(new FileWriter("ReporteStock.txt"));
+					r.stock(B.getStockMap().toSList());
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
+					System.out.println("Error al generar reporte!");
 					e1.printStackTrace();
-				}
-				if(f.exists()) {
-
-					try {
-						bw.write(" Material del inventario \n");
-					} catch (IOException e2) {
-						// TODO Auto-generated catch block
-						e2.printStackTrace();
-					}
-					try {
-						bw.write("Codigo           Nombre                       Cantidad \n");
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					for (int j=0;j<ordenes.size();j++) {
-						o= (Orden)ordenes.get(j);
-						for (int i=0;i<o.getPartsList().size();i++) {
-							Pieza p = (Pieza)o.getPartsList().get(i);
-							try {
-								bw.newLine();
-							} catch (IOException e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
-							}
-							try {
-								bw.write("    		          " +p.getCode()+ "		"+p.getDescription()+"		"+p.getCant() +"\n");
-							} catch (IOException e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
-							}	
-						}
-					}
-						try {
-							bw.newLine();
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-					try {
-						bw.write("la gananacia total es: "+ suma);
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					try {
-						bw.close();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}	
-				//AQUI HAY QUE HACER EL ARCHIVO REPORTE DE STOCK
 				}
 			}
 		});

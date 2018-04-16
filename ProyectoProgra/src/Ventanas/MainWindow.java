@@ -51,8 +51,6 @@ public class MainWindow extends JFrame {
 	public static void main(String[] args) throws SQLException {
 		
 		B = new SST();
-		Cliente c = new Cliente(190010059, "Chupalo Entonce", "+56912345678", "chupaloentonce@gmail.com", false);
-		B.getClientsMap().put(190010059, c);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

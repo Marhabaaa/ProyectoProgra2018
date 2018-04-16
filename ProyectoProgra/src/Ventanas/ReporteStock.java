@@ -69,7 +69,7 @@ public class ReporteStock<E> extends JFrame {
 		for (int i=0;i<piezas.size();i++) {
 			p=(Pieza) piezas.get(i);
 			aux=" " +p.getCode()+ "		"+p.getDescription()+"		"+p.getCant(); 
-			modelo.addElement((Object)aux);
+			modelo.addElement(aux);
 		}
 		scrollPane.setViewportView(list);
 		
