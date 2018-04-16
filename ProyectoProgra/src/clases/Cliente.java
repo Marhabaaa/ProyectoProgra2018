@@ -43,7 +43,9 @@ public class Cliente extends Persona {
 	public void setOrders(SList orders) {
 		this.orders = orders;
 	}
-	
+	/*
+	 *entrega la cantidad maxima de ordenes que se pueden efectuar
+	 */
 	public int calculateMaxOrders(boolean isBusiness) {
 		int max = 5;
         if(isBusiness)

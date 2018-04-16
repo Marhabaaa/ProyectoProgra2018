@@ -7,6 +7,10 @@ import java.io.*;
 
 public class Report {
 	private int suma;
+	/*
+	 * creo un archivo
+	 * entrega las ganacias de todas las ordenes ya efectuadas
+	 */
 
 	public void ganaciasTotales(SList ordenes) throws IOException{
 		Orden o;
@@ -29,7 +33,9 @@ public class Report {
 			bw.close();	
 		}
 		}
-		
+		/*
+		 * muestra por pantalla todas las ordenes ya efectuadas y las ganancias totales
+		 */
 	public void ganaciasTotalesPantalla(SList ordenes) throws IOException {
 		Orden o;
 		
@@ -44,7 +50,10 @@ public class Report {
 			System.out.println("el precio total es: "+ suma);
 		}
 	}
-		
+		/*
+		 * crea un archivo 
+		 * con todo el inventario disponible al momento
+		 */
 	
 	public void stock(SList stock) throws IOException {
 		Pieza p;
@@ -66,6 +75,9 @@ public class Report {
 
 		
 	}
+	/*
+	 * muestra por pantalle el inventario disponible al momento
+	 */
 	public void stockPantalla(SList stock) throws IOException {
 		
 		Pieza p;

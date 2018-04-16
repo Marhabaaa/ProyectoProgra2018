@@ -159,6 +159,9 @@ public class Orden {
 		
 		return sum + (calculateComplexity() * 1000);
 	}
+	/*
+	 * getProfit da el valor de que gana la empresa 
+	 */
 	
 	public int getProfit() {
 		return calculateComplexity() * 1000;

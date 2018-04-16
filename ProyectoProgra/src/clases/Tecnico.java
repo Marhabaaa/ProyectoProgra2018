@@ -65,7 +65,9 @@ public class Tecnico extends Persona {
 		orders.add(order);
 		setWorkload();
 	}
-	
+	/*
+	 * calcula la carga de trabajo
+	 */
 	public int calculateWorkload() {
 		int i = 0, sum = 0;
 		
@@ -76,6 +78,9 @@ public class Tecnico extends Persona {
 		
 		return sum;
 	}
+	/*
+	 * da una fecha estimada de salida
+	 */
 	
 	public int estimateDateOut(int orderComplexity) {
 		int delay = 0, sum = workload + orderComplexity;
