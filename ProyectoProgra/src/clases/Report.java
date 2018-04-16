@@ -6,13 +6,11 @@ import java.io.*;
 
 
 public class Report {
-	
-	private Orden o;
 	private int suma;
-	private Pieza p;
 
 	public void ganaciasTotales(SList ordenes) throws IOException{
-
+		Orden o;
+		
 		File f= new File ("Reporte.txt");
 		BufferedWriter bw = new BufferedWriter(new FileWriter("Reporte.txt"));
 		if(f.exists()) {
@@ -33,6 +31,8 @@ public class Report {
 		}
 		
 	public void ganaciasTotalesPantalla(SList ordenes) throws IOException {
+		Orden o;
+		
 		System.out.println("    Numero de orden 	    	Tecnico			Ganacia por orden ");
 		for (int i=0;i<ordenes.size();i++) {
 			
@@ -47,6 +47,7 @@ public class Report {
 		
 	
 	public void stock(SList stock) throws IOException {
+		Pieza p;
 		File f= new File ("ReporteStock.txt");
 		BufferedWriter bw = new BufferedWriter(new FileWriter("ReporteStock.txt"));
 		if(f.exists()) {
@@ -59,7 +60,7 @@ public class Report {
 				bw.write(" " +p.getCode()+ "		"+p.getDescription()+"		"+p.getCant() +"\n");	
 			}
 			bw.newLine();
-			bw.write("el precio total es: "+ suma);
+			
 			bw.close();	
 		}
 
@@ -67,7 +68,7 @@ public class Report {
 	}
 	public void stockPantalla(SList stock) throws IOException {
 		
-			
+		Pieza p;
 			System.out.println("Codigo           Nombre                       Cantidad ");
 			for (int i=0;i<stock.size();i++) {
 				p = (Pieza)stock.get(i);
