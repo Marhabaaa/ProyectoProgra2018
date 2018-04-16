@@ -45,7 +45,7 @@ public class OrdenCreada1 extends JFrame {
 		JLabel lblOrdenNIngresada_1 = new JLabel("Orden N\u00B0 " + order.getOrderNumber() + " ingresada con \u00E9xito.");
 		lblOrdenNIngresada_1.setFont(new Font("Segoe UI Black", Font.PLAIN, 16));
 		lblOrdenNIngresada_1.setForeground(SystemColor.text);
-		lblOrdenNIngresada_1.setBounds(95, 95, 354, 42);
+		lblOrdenNIngresada_1.setBounds(128, 94, 354, 42);
 		contentPane.add(lblOrdenNIngresada_1);
 		
 		JLabel lblSujetaARevisin = new JLabel("Sujeta a revisi\u00F3n.");
@@ -69,7 +69,7 @@ public class OrdenCreada1 extends JFrame {
 		JLabel lblPara = new JLabel("Para " + nombre);
 		lblPara.setForeground(SystemColor.text);
 		lblPara.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
-		lblPara.setBounds(194, 130, 133, 34);
+		lblPara.setBounds(160, 130, 261, 34);
 		contentPane.add(lblPara);
 		
 		//JLabel lblNewLabel = new JLabel(""+((Pieza) lista.get(0)).getDescription());
