@@ -20,6 +20,8 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
+import java.awt.SystemColor;
+import javax.swing.JLabel;
 
 public class ReporteStock<E> extends JFrame {
 
@@ -29,9 +31,10 @@ public class ReporteStock<E> extends JFrame {
 	 * Create the frame.
 	 */
 	public ReporteStock(SList ordenes, SST B) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.desktop);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
@@ -46,20 +49,8 @@ public class ReporteStock<E> extends JFrame {
 		contentPane.add(btnVolver);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(71, 54, 289, 134);
+		scrollPane.setBounds(37, 54, 358, 134);
 		contentPane.add(scrollPane);
-		
-		/*public void stockPantalla(SList stock) throws IOException {
-		
-			
-			System.out.println("Codigo           Nombre                       Cantidad ");
-			for (int i=0;i<stock.size();i++) {
-				p = (Pieza)stock.get(i);
-				System.out.println(" " +p.getCode()+ "		"+p.getDescription()+"		"+p.getCant() );	
-			}
-
-		
-		}*/
 		
 		JList list = new JList();
 		String aux;
@@ -68,10 +59,22 @@ public class ReporteStock<E> extends JFrame {
 		DefaultListModel modelo = new DefaultListModel();
 		for (int i=0;i<piezas.size();i++) {
 			p=(Pieza) piezas.get(i);
-			aux=" " +p.getCode()+ "		"+p.getDescription()+"		"+p.getCant(); 
+			//aux=" " +p.getCode()+ "                                           "+p.getDescription()+"                                           "+p.getCant(); 
+			aux=" " +p.getCode()+ "                                      "+p.getCant()+"                                   "+p.getDescription(); 
 			modelo.addElement(aux);
 		}
 		scrollPane.setViewportView(list);
+		list.setModel(modelo);
+		
+		JLabel lblMaterialDelInventario = new JLabel("Codigo:                           Cantidad:                          Nombre: \r\n");
+		lblMaterialDelInventario.setForeground(SystemColor.menu);
+		lblMaterialDelInventario.setBounds(37, 29, 387, 14);
+		contentPane.add(lblMaterialDelInventario);
+		
+		JLabel lblNewLabel = new JLabel("Material del inventario:");
+		lblNewLabel.setForeground(SystemColor.inactiveCaptionBorder);
+		lblNewLabel.setBounds(37, 11, 167, 14);
+		contentPane.add(lblNewLabel);
 		
 		
 	}

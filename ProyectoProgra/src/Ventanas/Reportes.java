@@ -32,7 +32,7 @@ public class Reportes extends JFrame {
 	 * Create the frame.
 	 */
 	public Reportes(SList ordenes, SST B) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.desktop);
@@ -50,7 +50,7 @@ public class Reportes extends JFrame {
 		ReporteGanancias.setBounds(34, 127, 162, 23);
 		contentPane.add(ReporteGanancias);
 		
-		JButton Stock = new JButton("Stock");
+		JButton Stock = new JButton("Reporte Stock");
 		Stock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ReporteStock ventana2= new ReporteStock(ordenes,B);
