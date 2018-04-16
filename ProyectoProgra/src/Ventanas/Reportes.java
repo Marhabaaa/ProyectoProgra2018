@@ -40,7 +40,7 @@ public class Reportes extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton ReporteGanancias = new JButton("Ganancias totales");
+		JButton ReporteGanancias = new JButton("Ganancias totales");		//se crea una ventana donde se muestra por pantalla el reporte de ganancias
 		ReporteGanancias.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ReporteGanancias ventana1= new ReporteGanancias(ordenes);
@@ -50,7 +50,7 @@ public class Reportes extends JFrame {
 		ReporteGanancias.setBounds(34, 127, 162, 23);
 		contentPane.add(ReporteGanancias);
 		
-		JButton Stock = new JButton("Reporte Stock");
+		JButton Stock = new JButton("Reporte Stock");						//se crea una ventana donde se muestra por pantalla el reporte de piezas del inventario
 		Stock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ReporteStock ventana2= new ReporteStock(ordenes,B);
@@ -60,7 +60,7 @@ public class Reportes extends JFrame {
 		Stock.setBounds(225, 127, 177, 23);
 		contentPane.add(Stock);
 		
-		JButton btnNewButton_2 = new JButton("Generar reporte");
+		JButton btnNewButton_2 = new JButton("Generar reporte");			//se crea el archivo .txt de reporte de ganancias
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Report r = new Report();
@@ -77,7 +77,7 @@ public class Reportes extends JFrame {
 		btnNewButton_2.setBounds(34, 150, 162, 23);
 		contentPane.add(btnNewButton_2);
 		
-		JButton GenerarReporte2 = new JButton("Generar Reporte");
+		JButton GenerarReporte2 = new JButton("Generar Reporte");			//se crea el archivo .txt de reporte de piezas del inventario
 		GenerarReporte2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Report r = new Report();

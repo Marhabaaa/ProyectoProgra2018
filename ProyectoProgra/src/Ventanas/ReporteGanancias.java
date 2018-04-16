@@ -24,9 +24,9 @@ public class ReporteGanancias extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ReporteGanancias(SList ordenes) {
+	public ReporteGanancias(SList ordenes) {				//aqui se muestra por pantalla el reporte de ganancias totales
 		
-		Report reporte= new Report();
+		Report reporte= new Report();						
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

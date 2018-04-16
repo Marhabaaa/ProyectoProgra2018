@@ -43,7 +43,7 @@ public class VentanaPersonaNoExiste extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaPersonaNoExiste(String rut, String problema,SST B) throws SQLException {
+	public VentanaPersonaNoExiste(String rut, String problema,SST B) throws SQLException { //Aqui se crea al nuevo cliente
 		String rut1=rut;
 		Cliente client;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -60,23 +60,23 @@ public class VentanaPersonaNoExiste extends JFrame {
 		
 		contentPane.add(lblNombre);
 		
-		nombre = new JTextField();
+		nombre = new JTextField();			//Aqui se agrega el nombre del cliente
 		nombre.setBounds(162, 77, 104, 20);
 		contentPane.add(nombre);
 		nombre.setColumns(10);
 		
 		
-		telefono = new JTextField();
+		telefono = new JTextField();		//Aqui se agrega el telefono del cliente
 		telefono.setColumns(10);
 		telefono.setBounds(162, 121, 104, 20);
 		contentPane.add(telefono);
 		
-		correo = new JTextField();
+		correo = new JTextField();			//Aqui se agrega el correo del cliente
 		correo.setColumns(10);
 		correo.setBounds(162, 208, 104, 20);
 		contentPane.add(correo);
 		
-		tipoCliente = new JTextField();
+		tipoCliente = new JTextField();		//Aqui se agrega el tipo de cliente (persona o empresa)
 		tipoCliente.setColumns(10);
 		tipoCliente.setBounds(162, 245, 104, 20);
 		contentPane.add(tipoCliente);
@@ -101,9 +101,9 @@ public class VentanaPersonaNoExiste extends JFrame {
 		lblTipoDeCliente.setBounds(65, 248, 104, 14);
 		contentPane.add(lblTipoDeCliente);
 		
-		btnNewButton = new JButton("Siguiente");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		btnNewButton = new JButton("Siguiente");				//este boton vuelve a la ventana principal para verificar
+		btnNewButton.addActionListener(new ActionListener() {	//si el cliente fue creado con exito y asi empezar a 		
+			public void actionPerformed(ActionEvent arg0) {		//agregar piezas a la orden del cliente
 				Cliente c;
 				if(tipoCliente.getText()=="empresa"){
 					c = new Cliente(Integer.parseInt(rut), nombre.getText(), telefono.getText(), correo.getText(), true);
@@ -117,7 +117,7 @@ public class VentanaPersonaNoExiste extends JFrame {
 		btnNewButton.setBounds(409, 244, 89, 23);
 		contentPane.add(btnNewButton);
 		
-		btnAtrs = new JButton("Atr\u00E1s");
+		btnAtrs = new JButton("Atr\u00E1s");				//boton para volver al menu principal
 		btnAtrs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaPersonaNoExiste.this.dispose();

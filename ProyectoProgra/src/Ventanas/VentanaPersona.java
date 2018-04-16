@@ -35,8 +35,8 @@ public class VentanaPersona extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaPersona(String rut, String problema, SST B, SList lista) {
-				
+	public VentanaPersona(String rut, String problema, SST B, SList lista) { //se crea la ventana para agregar piezas
+																			 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 554, 354);
 		contentPane = new JPanel();
@@ -66,26 +66,9 @@ public class VentanaPersona extends JFrame {
 		});
 		scrollPane.setViewportView(listaPiezas);
 		
-		//String selected = (String) listaPiezas.getSelectedValue();
-		//int i=Integer.parseInt(selected);
-		//lista.add(B.getStockMap().get(i));
 		
-		//JList piezasAgregadas = new JList();					//HACER ESTO, este es el jlist de piezas agregadas
-		//piezasAgregadas.setModel(new AbstractListModel() {
-			//String[] values = 
-			//public int getSize() {
-				//return values.length;
-			//}
-			//public Object getElementAt(int index) {
-				//return values[index];
-			//}
-		//});
-		//scrollPane_1.setViewportView(piezasAgregadas);
-		
-		//////////////////////////////////////////////////////////
-		JButton agregarPieza = new JButton("Agregar otra");
-		//SList piezasAgregadas;
-		agregarPieza.addActionListener(new ActionListener() {
+		JButton agregarPieza = new JButton("Agregar otra");  //aqui se agrega la pieza escrita en el espacio 
+		agregarPieza.addActionListener(new ActionListener() {//y permite agregar una nueva
 			public void actionPerformed(ActionEvent arg0) {
 				String text = piezaAñadida.getText();
 				if(!text.equals("")) {
@@ -100,15 +83,14 @@ public class VentanaPersona extends JFrame {
 		});
 		agregarPieza.setBounds(290, 209, 107, 23);
 		contentPane.add(agregarPieza);
-///////////////////////////////////////////////////////////////
 		
 		int rut1=Integer.parseInt(rut);
 		Tecnico auxT = B.leastWorkload();
-		JButton button = new JButton("Siguiente");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Orden auxO;
-				Date hoy= new Date(); 
+		JButton button = new JButton("Siguiente");			//este boton crea la nueva ventana con la orden creada del
+		button.addActionListener(new ActionListener() {		//cliente, dependiendo de si tiene piezas agregadas o no
+			public void actionPerformed(ActionEvent e) {	//si tiene piezas se entrega el costo total y el tiempo
+				Orden auxO;									//estimado, si no tiene piezas se muestra una ventana
+				Date hoy= new Date(); 						//que señala que quedara a revision
 				SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy"); 
 				String fecha = sdf.format(hoy);
 				auxO = new Orden(B.getNewOrderNumber(), problema, fecha, rut1, auxT.getTechNumber());
@@ -132,7 +114,7 @@ public class VentanaPersona extends JFrame {
 		button.setBounds(389, 257, 89, 23);
 		contentPane.add(button);
 		
-		JButton button_1 = new JButton("Atr\u00E1s");
+		JButton button_1 = new JButton("Atr\u00E1s");			//vuelve al menu principal
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaPersona.this.dispose();

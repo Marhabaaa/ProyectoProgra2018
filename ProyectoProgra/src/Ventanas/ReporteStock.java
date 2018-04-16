@@ -29,8 +29,8 @@ public class ReporteStock<E> extends JFrame {
 
 	/**
 	 * Create the frame.
-	 */
-	public ReporteStock(SList ordenes, SST B) {
+	 */	
+	public ReporteStock(SList ordenes, SST B) {				//aqui se muestra por pantalla el reporte del inventario de piezas
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

@@ -28,8 +28,8 @@ public class OrdenCreada2 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public OrdenCreada2(String nombre, Orden order, SST B) {
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	public OrdenCreada2(String nombre, Orden order, SST B) { //aqui se muestra por pantalla la orden,
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);	 //el tiempo estimado y el valor total
 		setBounds(100, 100, 570, 354);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.desktop);
@@ -59,7 +59,7 @@ public class OrdenCreada2 extends JFrame {
 		lblTiempoEstimado.setBounds(195, 196, 174, 14);
 		contentPane.add(lblTiempoEstimado);
 		
-		JButton btnFinalizar = new JButton("Finalizar");
+		JButton btnFinalizar = new JButton("Finalizar");		//aqui se crea la orden y se devuelve al menu principal
 		btnFinalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				((Cliente) B.getClientsMap().get(order.getClientRut())).getOrders().add(order);
@@ -71,10 +71,9 @@ public class OrdenCreada2 extends JFrame {
 		btnFinalizar.setBounds(280, 221, 89, 23);
 		contentPane.add(btnFinalizar);
 		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.addActionListener(new ActionListener() {
+		JButton btnCancelar = new JButton("Cancelar");			//se cancela la creacion de la orden y se devuelve
+		btnCancelar.addActionListener(new ActionListener() {	//al menu principal
 			public void actionPerformed(ActionEvent arg0) {
-				//BORRAR CLIENTE
 				OrdenCreada2.this.dispose();
 			}
 		});
