@@ -20,6 +20,11 @@ public class SMap {
 		return true;
 	}
 	
+	public boolean remove(int key) {
+		map.remove(key);
+		return true;
+	}
+	
 	public Object get(int key) {
 		return map.get(key);
 	}

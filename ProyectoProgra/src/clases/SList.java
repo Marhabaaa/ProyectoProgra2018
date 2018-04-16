@@ -14,6 +14,11 @@ public class SList {
 		return true;
 	}
 	
+	public boolean remove(Object o) {
+		list.remove(o);
+		return true;
+	}
+	
 	public Object get(int index) {
 		return list.get(index);
 	}
