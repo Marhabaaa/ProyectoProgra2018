@@ -34,10 +34,6 @@ import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.JTabbedPane;
 
-
-
-
-
 public class MainWindow extends JFrame {
 
 	private JPanel contentPane;

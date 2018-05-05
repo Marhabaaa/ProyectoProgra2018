@@ -54,7 +54,7 @@ public class OrdenCreada2 extends JFrame {
 		lblCosto.setBounds(206, 171, 174, 14);
 		contentPane.add(lblCosto);
 		
-		JLabel lblTiempoEstimado = new JLabel("Dias para entrega: " + order.getDateOut());
+		JLabel lblTiempoEstimado = new JLabel("Dias para entrega: " + B.delayOfReturn(order));
 		lblTiempoEstimado.setForeground(SystemColor.text);
 		lblTiempoEstimado.setBounds(195, 196, 174, 14);
 		contentPane.add(lblTiempoEstimado);
